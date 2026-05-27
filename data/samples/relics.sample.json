@@ -1,0 +1,26 @@
+[
+  {
+    "id": "income_relic",
+    "display_name": "Income Relic",
+    "role": "economy",
+    "rarity": "common",
+    "arsenal_cost": 2,
+    "effect": { "income_bonus": 5 },
+    "tags": ["bonus"],
+    "unlock_id": null,
+    "visual_key": "income_relic",
+    "enabled": true
+  },
+  {
+    "id": "defense_relic",
+    "display_name": "Defense Relic",
+    "role": "defense",
+    "rarity": "uncommon",
+    "arsenal_cost": 3,
+    "effect": { "armor_bonus": 5 },
+    "tags": ["defense"],
+    "unlock_id": "unlock_defense_relic",
+    "visual_key": "defense_relic",
+    "enabled": true
+  }
+]

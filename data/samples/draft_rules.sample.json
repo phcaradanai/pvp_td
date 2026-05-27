@@ -1,0 +1,19 @@
+{
+  "mode": "standard",
+  "ban_enabled": false,
+  "bans_per_player": 0,
+  "pick_order": "alternating",
+  "final_loadout": {
+    "tower_slots": 5,
+    "creep_slots": 3,
+    "spell_slots": 2,
+    "relic_slots": 1,
+    "guardian_slots": 1
+  },
+  "shared_pool_rules": {
+    "remove_duplicates": true,
+    "include_base_pool": true,
+    "reveal_all_items": false
+  },
+  "enabled": true
+}

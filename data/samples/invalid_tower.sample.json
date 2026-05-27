@@ -1,0 +1,8 @@
+[
+  {
+    "id": "invalid_tower",
+    "display_name": "Invalid Tower",
+    "element": "fire"
+    // missing required fields: role, tier, rarity, arsenal_cost, build_cost, upgrade_cost, stats, enabled, etc.
+  }
+]

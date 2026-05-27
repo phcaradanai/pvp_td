@@ -1,0 +1,44 @@
+[
+  {
+    "id": "burn_spell",
+    "display_name": "Burn Spell",
+    "role": "damage",
+    "rarity": "common",
+    "arsenal_cost": 4,
+    "cast_cost": 30,
+    "cooldown_seconds": 5,
+    "target_rule": "area",
+    "effect": {
+      "damage_over_time": 5,
+      "duration": 3,
+      "type": "fire"
+    },
+    "tags": ["burn"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": null,
+    "visual_key": "burn_spell",
+    "enabled": true
+  },
+  {
+    "id": "freeze_spell",
+    "display_name": "Freeze Spell",
+    "role": "control",
+    "rarity": "uncommon",
+    "arsenal_cost": 5,
+    "cast_cost": 40,
+    "cooldown_seconds": 8,
+    "target_rule": "single",
+    "effect": {
+      "slow_percent": 50,
+      "duration": 2,
+      "type": "ice"
+    },
+    "tags": ["freeze"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": "unlock_freeze_spell",
+    "visual_key": "freeze_spell",
+    "enabled": true
+  }
+]

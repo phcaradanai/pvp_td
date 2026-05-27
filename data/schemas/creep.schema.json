@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Creep",
+  "type": "object",
+  "required": ["id","display_name","role","rarity","arsenal_cost","send_cost","income_value","stats","tags","counters","countered_by","unlock_id","visual_key","enabled"],
+  "properties": {
+    "id": {"type": "string"},
+    "display_name": {"type": "string"},
+    "role": {"type": "string"},
+    "rarity": {"type": "string"},
+    "arsenal_cost": {"type": "integer"},
+    "send_cost": {"type": "integer"},
+    "income_value": {"type": "integer"},
+    "stats": {
+      "type": "object",
+      "required": ["hp","speed","armor","shield","leak_damage"],
+      "properties": {
+        "hp": {"type": "number"},
+        "speed": {"type": "number"},
+        "armor": {"type": "number"},
+        "shield": {"type": "number"},
+        "leak_damage": {"type": "number"}
+      }
+    },
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "counters": {"type": "array", "items": {"type": "string"}},
+    "countered_by": {"type": "array", "items": {"type": "string"}},
+    "unlock_id": {"type": ["string", "null"]},
+    "visual_key": {"type": "string"},
+    "enabled": {"type": "boolean"}
+  }
+}

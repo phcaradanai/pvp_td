@@ -1,0 +1,90 @@
+[
+  {
+    "id": "basic_creep",
+    "display_name": "Basic Creep",
+    "role": "damage",
+    "rarity": "common",
+    "arsenal_cost": 3,
+    "send_cost": 50,
+    "income_value": 10,
+    "stats": {
+      "hp": 100,
+      "speed": 1.0,
+      "armor": 0,
+      "shield": 0,
+      "leak_damage": 0
+    },
+    "tags": ["starter"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": null,
+    "visual_key": "basic_creep",
+    "enabled": true
+  },
+  {
+    "id": "fast_creep",
+    "display_name": "Fast Creep",
+    "role": "speed",
+    "rarity": "uncommon",
+    "arsenal_cost": 4,
+    "send_cost": 75,
+    "income_value": 12,
+    "stats": {
+      "hp": 80,
+      "speed": 1.5,
+      "armor": 0,
+      "shield": 0,
+      "leak_damage": 0
+    },
+    "tags": ["fast"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": "unlock_fast_creep",
+    "visual_key": "fast_creep",
+    "enabled": true
+  },
+  {
+    "id": "tank_creep",
+    "display_name": "Tank Creep",
+    "role": "tank",
+    "rarity": "uncommon",
+    "arsenal_cost": 5,
+    "send_cost": 100,
+    "income_value": 15,
+    "stats": {
+      "hp": 200,
+      "speed": 0.7,
+      "armor": 20,
+      "shield": 10,
+      "leak_damage": 0
+    },
+    "tags": ["tank"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": "unlock_tank_creep",
+    "visual_key": "tank_creep",
+    "enabled": true
+  },
+  {
+    "id": "shield_creep",
+    "display_name": "Shield Creep",
+    "role": "support",
+    "rarity": "rare",
+    "arsenal_cost": 6,
+    "send_cost": 120,
+    "income_value": 18,
+    "stats": {
+      "hp": 150,
+      "speed": 0.9,
+      "armor": 10,
+      "shield": 30,
+      "leak_damage": 0
+    },
+    "tags": ["shield"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": "unlock_shield_creep",
+    "visual_key": "shield_creep",
+    "enabled": true
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Draft Rules",
+  "type": "object",
+  "required": ["mode","ban_enabled","bans_per_player","pick_order","final_loadout","shared_pool_rules","enabled"],
+  "properties": {
+    "mode": {"type": "string"},
+    "ban_enabled": {"type": "boolean"},
+    "bans_per_player": {"type": "integer"},
+    "pick_order": {"type": "string"},
+    "final_loadout": {
+      "type": "object",
+      "required": ["tower_slots","creep_slots","spell_slots","relic_slots","guardian_slots"],
+      "properties": {
+        "tower_slots": {"type": "integer"},
+        "creep_slots": {"type": "integer"},
+        "spell_slots": {"type": "integer"},
+        "relic_slots": {"type": "integer"},
+        "guardian_slots": {"type": "integer"}
+      }
+    },
+    "shared_pool_rules": {
+      "type": "object",
+      "required": ["remove_duplicates","include_base_pool","reveal_all_items"],
+      "properties": {
+        "remove_duplicates": {"type": "boolean"},
+        "include_base_pool": {"type": "boolean"},
+        "reveal_all_items": {"type": "boolean"}
+      }
+    },
+    "enabled": {"type": "boolean"}
+  }
+}

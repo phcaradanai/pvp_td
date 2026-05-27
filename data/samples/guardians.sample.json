@@ -1,0 +1,42 @@
+[
+  {
+    "id": "shield_guardian",
+    "display_name": "Shield Guardian",
+    "role": "support",
+    "rarity": "rare",
+    "arsenal_cost": 8,
+    "ability": {
+      "type": "shield",
+      "strength": 20,
+      "duration": 5
+    },
+    "cooldown_seconds": 30,
+    "stats": {},
+    "tags": ["shield"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": null,
+    "visual_key": "shield_guardian",
+    "enabled": true
+  },
+  {
+    "id": "burst_guardian",
+    "display_name": "Burst Guardian",
+    "role": "damage",
+    "rarity": "rare",
+    "arsenal_cost": 9,
+    "ability": {
+      "type": "burst",
+      "damage": 30,
+      "radius": 3
+    },
+    "cooldown_seconds": 25,
+    "stats": {},
+    "tags": ["burst"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": "unlock_burst_guardian",
+    "visual_key": "burst_guardian",
+    "enabled": true
+  }
+]

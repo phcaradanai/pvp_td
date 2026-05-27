@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Guardian",
+  "type": "object",
+  "required": ["id","display_name","role","rarity","arsenal_cost","ability","cooldown_seconds","stats","tags","unlock_id","visual_key","enabled"],
+  "properties": {
+    "id": {"type": "string"},
+    "display_name": {"type": "string"},
+    "role": {"type": "string"},
+    "rarity": {"type": "string"},
+    "arsenal_cost": {"type": "integer"},
+    "ability": {"type": "string"},
+    "cooldown_seconds": {"type": "number"},
+    "stats": {"type": "object"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "unlock_id": {"type": ["string", "null"]},
+    "visual_key": {"type": "string"},
+    "enabled": {"type": "boolean"}
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relic",
+  "type": "object",
+  "required": ["id","display_name","role","rarity","arsenal_cost","effect","tags","unlock_id","visual_key","enabled"],
+  "properties": {
+    "id": {"type": "string"},
+    "display_name": {"type": "string"},
+    "role": {"type": "string"},
+    "rarity": {"type": "string"},
+    "arsenal_cost": {"type": "integer"},
+    "effect": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "unlock_id": {"type": ["string", "null"]},
+    "visual_key": {"type": "string"},
+    "enabled": {"type": "boolean"}
+  }
+}

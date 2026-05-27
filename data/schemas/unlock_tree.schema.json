@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unlock Tree",
+  "type": "object",
+  "required": ["unlocks"],
+  "properties": {
+    "unlocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id","display_name","type","target_id","cost","currency","prerequisites","account_level_required","allowed_in_ranked","grants_stat_advantage","enabled"],
+        "properties": {
+          "id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "type": {"type": "string"},
+          "target_id": {"type": "string"},
+          "cost": {"type": "integer"},
+          "currency": {"type": "string"},
+          "prerequisites": {"type": "array", "items": {"type": "string"}},
+          "account_level_required": {"type": "integer"},
+          "allowed_in_ranked": {"type": "boolean"},
+          "grants_stat_advantage": {"type": "boolean"},
+          "enabled": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "victory": {
+    "xp": 100,
+    "victory_shards": 10,
+    "essence": 5,
+    "mastery_xp": 20
+  },
+  "defeat": {
+    "xp": 50,
+    "victory_shards": 2,
+    "essence": 2,
+    "mastery_xp": 5
+  },
+  "bonuses": {
+    "first_win": 10,
+    "win_streak": 5,
+    "no_early_surrender": 3
+  },
+  "anti_abuse_rules": {},
+  "enabled": true
+}

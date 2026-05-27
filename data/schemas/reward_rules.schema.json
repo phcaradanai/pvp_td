@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reward Rules",
+  "type": "object",
+  "required": ["victory","defeat","bonuses","anti_abuse_rules","enabled"],
+  "properties": {
+    "victory": {
+      "type": "object",
+      "required": ["xp","victory_shards","essence","mastery_xp"],
+      "properties": {
+        "xp": {"type": "integer"},
+        "victory_shards": {"type": "integer"},
+        "essence": {"type": "integer"},
+        "mastery_xp": {"type": "integer"}
+      }
+    },
+    "defeat": {
+      "type": "object",
+      "required": ["xp","victory_shards","essence","mastery_xp"],
+      "properties": {
+        "xp": {"type": "integer"},
+        "victory_shards": {"type": "integer"},
+        "essence": {"type": "integer"},
+        "mastery_xp": {"type": "integer"}
+      }
+    },
+    "bonuses": {
+      "type": "object",
+      "properties": {
+        "first_win": {"type": "integer"},
+        "win_streak": {"type": "integer"},
+        "no_early_surrender": {"type": "integer"}
+      }
+    },
+    "anti_abuse_rules": {"type": "object"},
+    "enabled": {"type": "boolean"}
+  }
+}
