@@ -40,16 +40,17 @@ To bridge the gap between validation code and a full game engine, a **Client Pro
 4. **Visual Shell** (`client/prototype/visual`): A plain HTML/CSS/JS shell rendering the UI states without a real game engine.
 5. **Scenario Runner**: The visual shell supports hot-swapping between full E2E match states (e.g. draws, core HP overrides) proving the UI cleanly renders all scenarios without executing any game code. The client reward preview consumes sample/contract data, while the backend remains authoritative. Future APIs can replace sample reward data.
 
-### Godot Scene Prototype (M24 → M25)
+### Godot Scene Prototype (M24 → M26)
 
-To validate the 7-screen PvP flow in a real game engine, a **Godot 4.6.2 Scene Prototype** (`godot_prototype/`) was built and extended with interactive drafting.
+To validate the 7-screen PvP flow in a real game engine, a **Godot 4.6.2 Scene Prototype** (`godot_prototype/`) was built and extended with interactive drafting and planning.
 
-- **PvpFlowState** (`class_name`, extends `RefCounted`): Loads `sample_pvp_flow.json`, holds `current_index`, `screen_data`, `pool_items`, `draft_picks_a/b`, `current_drafter`, `draft_locked`. Provides navigation, draft logic (`pick_shared_pool_item`, `lock_draft`, `reset_draft`, `can_advance_from_current_screen`), and budget helpers. Not a node.
-- **PvpFlowViewModel** (`class_name`, extends `RefCounted`): Pure mapping from state to flat display strings via static `build(state, feedback)`. Computes `pool_item_cards`, `show_pool_items`, `lock_draft_enabled`. Screen-routing: draft screen uses `_build_draft_panels`; planning/battle screens use `_build_planning_panels`/`_build_battle_panels` when `draft_locked`; all others read from `screen_data`. Not a node.
-- **PvpFlowController** (extends `Control`): Owns `@onready` node references, creates State and ViewModel, wires button signals including LockDraftButton. Dynamically builds pool item buttons via `_rebuild_pool_buttons()` using `.bind()` for signal connections (not lambdas — avoids GDScript 4 loop-variable capture issue). Stores `_last_feedback` and passes it to `build()`. Calls `_render()` on every state change. No global mutable singletons.
+- **PvpFlowState** (`class_name`, extends `RefCounted`): Loads `sample_pvp_flow.json`, holds navigation, draft state, and planning placements. Provides navigation, draft logic (`pick_shared_pool_item`, `lock_draft`), and planning logic (`can_place_item`, `place_item`, `is_planning_valid`). Not a node.
+- **PvpFlowViewModel** (`class_name`, extends `RefCounted`): Pure mapping from state to flat display strings via static `build(state, feedback)`. Computes dynamic arrays for UI rendering (e.g., `pool_item_cards`, `planning_items_a`, `planning_slots_a`). Not a node.
+- **PvpFlowController** (extends `Control`): Owns `@onready` node references, creates State and ViewModel, wires button signals. Dynamically builds UI via `_rebuild_dynamic_content()` for draft and planning screens. Stores `_last_feedback` and passes it to `build()`. Calls `_render()` on every state change. No global mutable singletons.
 - **7 screens**: `arsenal_preview → shared_pool_preview → draft_preview → planning_preview → battle_preview → result_preview → reward_preview`.
+- **Planning Logic**: Players assign drafted items to defense slots (towers) or send lanes (creeps). Progress to battle is blocked until both players place at least 1 tower and 1 creep.
 - Godot prototype has no real combat, networking, WebSocket, backend calls, matchmaking, or database.
-- Structure and content verified by `tools/validation/tests/godot_prototype_structure.test.mjs` (10 tests) and `tools/validation/tests/godot_draft_interaction_structure.test.mjs` (36 tests).
+- Structure and content verified by structure test suites in `tools/validation/tests/` (Godot prototype structure, draft interaction, draft viability, planning placement).
 
 ## Proposed Client Module Structure
 ```

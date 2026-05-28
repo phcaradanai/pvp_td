@@ -38,8 +38,8 @@ test("pvp_flow_controller.gd uses .bind() for pool item button connections", () 
   assert.ok(controllerSrc.includes(".bind(item_id)"), ".bind(item_id) not found — use .bind() not lambda for signal connections");
 });
 
-test("pvp_flow_controller.gd contains _rebuild_pool_buttons", () => {
-  assert.ok(controllerSrc.includes("_rebuild_pool_buttons"), "_rebuild_pool_buttons not found in controller");
+test("pvp_flow_controller.gd contains _rebuild_dynamic_content", () => {
+  assert.ok(controllerSrc.includes("_rebuild_dynamic_content"), "_rebuild_dynamic_content not found in controller");
 });
 
 test("pvp_flow_state.gd contains draft_locked", () => {

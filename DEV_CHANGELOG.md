@@ -1,6 +1,25 @@
 # DEV_CHANGELOG.md
 
 ## 2026-05-28
+- **Task name**: M26 Godot Planning Placement Prototype
+- **Files created**:
+  - `tools/validation/tests/godot_planning_placement_structure.test.mjs`
+- **Files updated**:
+  - `godot_prototype/scripts/pvp_flow_state.gd` (added placements state and methods, gates Next button if invalid)
+  - `godot_prototype/scripts/pvp_flow_view_model.gd` (added dynamic planning items and slots exposing selectable/placed states)
+  - `godot_prototype/scripts/pvp_flow_controller.gd` (added select/place actions, dynamically rebuilds planning slots)
+  - `godot_prototype/data/sample_pvp_flow.json` (added planning_config)
+  - `tools/validation/validate_data.mjs` (added planning_config checks)
+  - `TODO.md` (M26 complete)
+  - `DEV_CHANGELOG.md`
+  - `godot_prototype/README.md`
+  - `ARCHITECTURE_NOTES.md`
+- **What changed**: Added planning placement logic to the Godot prototype. Players can select drafted items and assign them to defense slots (towers) or send lanes (creeps). Progress is blocked until both players place at least 1 tower and 1 creep.
+- **Why it changed**: To prove that the planning phase works interactively before any real combat is introduced.
+- **Risk**: Low - pure state/UI updates, no networking/real combat.
+- **Tests run**: `npm test` passes 393 tests, `npm run validate:data` passes.
+
+## 2026-05-28
 - **Task name**: M25 Dead-end Fix — Draft Viability Guard
 - **Files created**:
   - `tools/validation/tests/godot_draft_viability_structure.test.mjs` (22 content-grep tests)

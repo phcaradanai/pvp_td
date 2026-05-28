@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://cnquahhj84sae"]
+
+[ext_resource type="Script" uid="uid://bn00oh3ufaure" path="res://scripts/pvp_flow_controller.gd" id="1_ctrl"]
+
+[node name="PvPFlowPrototype" type="Control" unique_id=1466168071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ctrl")
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=354912690]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Header" type="HBoxContainer" parent="MainLayout" unique_id=422730012]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhaseTitle" type="Label" parent="MainLayout/Header" unique_id=794878690]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Phase Title"
+
+[node name="ProgressLabel" type="Label" parent="MainLayout/Header" unique_id=2055121960]
+layout_mode = 2
+text = "Screen 1 / 7"
+horizontal_alignment = 2
+
+[node name="ContentRow" type="HBoxContainer" parent="MainLayout" unique_id=1610872651]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerAPanel" type="Panel" parent="MainLayout/ContentRow" unique_id=1199677190]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/PlayerAPanel" unique_id=378059881]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerATitle" type="Label" parent="MainLayout/ContentRow/PlayerAPanel/VBox" unique_id=536743386]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Player A"
+
+[node name="PlayerAContent" type="Label" parent="MainLayout/ContentRow/PlayerAPanel/VBox" unique_id=1839953344]
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 3
+
+[node name="CenterPanel" type="Panel" parent="MainLayout/ContentRow" unique_id=1967023381]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/CenterPanel" unique_id=1237646800]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterTitle" type="Label" parent="MainLayout/ContentRow/CenterPanel/VBox" unique_id=1521349420]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Center"
+horizontal_alignment = 1
+
+[node name="CenterContent" type="Label" parent="MainLayout/ContentRow/CenterPanel/VBox" unique_id=375069382]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PoolScrollContainer" type="ScrollContainer" parent="MainLayout/ContentRow/CenterPanel/VBox" unique_id=133418953]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PoolItemsContainer" type="VBoxContainer" parent="MainLayout/ContentRow/CenterPanel/VBox/PoolScrollContainer" unique_id=159805146]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerBPanel" type="Panel" parent="MainLayout/ContentRow" unique_id=399251392]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/PlayerBPanel" unique_id=829257643]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerBTitle" type="Label" parent="MainLayout/ContentRow/PlayerBPanel/VBox" unique_id=897599104]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Player B"
+
+[node name="PlayerBContent" type="Label" parent="MainLayout/ContentRow/PlayerBPanel/VBox" unique_id=1318146677]
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 3
+
+[node name="Controls" type="HBoxContainer" parent="MainLayout" unique_id=1043090804]
+layout_mode = 2
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="MainLayout/Controls" unique_id=282945587]
+layout_mode = 2
+text = "< Prev"
+
+[node name="ResetButton" type="Button" parent="MainLayout/Controls" unique_id=1945767736]
+layout_mode = 2
+text = "Reset"
+
+[node name="LockDraftButton" type="Button" parent="MainLayout/Controls" unique_id=1618094271]
+visible = false
+layout_mode = 2
+text = "Lock Draft"
+
+[node name="DraftStatusLabel" type="Label" parent="MainLayout/Controls" unique_id=178770621]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="MainLayout/Controls" unique_id=553029931]
+layout_mode = 2
+text = "Next >"
+
+[node name="Footer" type="Panel" parent="MainLayout" unique_id=1569738992]
+layout_mode = 2
+
+[node name="FooterLabel" type="Label" parent="MainLayout/Footer" unique_id=254265237]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PvP Tower Tactics — Prototype M25"
+horizontal_alignment = 1

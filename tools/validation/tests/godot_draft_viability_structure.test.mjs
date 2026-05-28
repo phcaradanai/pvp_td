@@ -100,7 +100,7 @@ test("pvp_flow_controller.gd shows warning indicator for non-viable affordable i
 });
 
 test("pvp_flow_controller.gd disables button only for drafted or not affordable (not for viability alone)", () => {
-  const rebuildFn = controllerSrc.slice(controllerSrc.indexOf("func _rebuild_pool_buttons"));
+  const rebuildFn = controllerSrc.slice(controllerSrc.indexOf("func _rebuild_dynamic_content"));
   const endIdx = rebuildFn.indexOf("\nfunc ", 1);
   const body = endIdx > 0 ? rebuildFn.slice(0, endIdx) : rebuildFn;
   assert.ok(body.includes('card["drafted"] or not card["affordable"]'), "button disabled logic should only check drafted and affordable");

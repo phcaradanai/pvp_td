@@ -1,4 +1,9 @@
 {
+  "planning_config": {
+    "defense_slot_count": 3,
+    "send_lane_count": 3,
+    "spell_slot_count": 2
+  },
   "screens": [
     "arsenal_preview",
     "shared_pool_preview",

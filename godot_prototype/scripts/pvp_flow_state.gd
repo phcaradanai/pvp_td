@@ -56,6 +56,8 @@ func can_go_prev() -> bool:
 func can_advance_from_current_screen() -> bool:
 	if current_screen() == "shared_pool_preview":
 		return draft_locked
+	if current_screen() == "planning_preview":
+		return is_planning_valid()
 	return can_go_next()
 
 func go_next() -> void:
@@ -197,3 +199,102 @@ func reset_draft() -> void:
 	draft_picks_b = []
 	current_drafter = "player_a"
 	draft_locked = false
+
+var selected_planning_item: String = ""
+var planning_locked: bool = false
+var defense_slots: int = 3
+var send_lanes: int = 3
+var spell_slots: int = 2
+var placements_a: Dictionary = { "defense": {}, "send": {}, "spells": {} }
+var placements_b: Dictionary = { "defense": {}, "send": {}, "spells": {} }
+var planning_feedback: String = ""
+
+func get_drafted_items_for_player(player_id: String) -> Array:
+	return draft_picks_a if player_id == "player_a" else draft_picks_b
+
+func is_item_already_placed(player_id: String, item_id: String) -> bool:
+	var placements := placements_a if player_id == "player_a" else placements_b
+	for type in placements.keys():
+		for slot in placements[type].keys():
+			if placements[type][slot] == item_id:
+				return true
+	return false
+
+func can_place_item(player_id: String, item_id: String, slot_type: String, slot_id: String) -> Dictionary:
+	var item := get_item_by_id(item_id)
+	if item.is_empty():
+		return {"ok": false, "error": "Unknown item."}
+	var drafted := get_drafted_items_for_player(player_id)
+	if not drafted.has(item_id):
+		return {"ok": false, "error": "Item not drafted by player."}
+	if is_item_already_placed(player_id, item_id):
+		return {"ok": false, "error": "Item already placed."}
+	
+	var cat := str(item.get("category", ""))
+	if slot_type == "defense" and cat != "tower":
+		return {"ok": false, "error": "Cannot place " + cat + " in defense slot."}
+	if slot_type == "send" and cat != "creep":
+		return {"ok": false, "error": "Cannot place " + cat + " in send lane."}
+	if slot_type == "spells" and cat != "spell":
+		return {"ok": false, "error": "Cannot place " + cat + " in spell slot."}
+	
+	var placements := placements_a if player_id == "player_a" else placements_b
+	if placements.has(slot_type) and placements[slot_type].get(slot_id) != null:
+		return {"ok": false, "error": "Slot already occupied."}
+	
+	return {"ok": true, "error": ""}
+
+func place_item(player_id: String, item_id: String, slot_type: String, slot_id: String) -> Dictionary:
+	var viability = can_place_item(player_id, item_id, slot_type, slot_id)
+	if not viability["ok"]:
+		return viability
+	var placements := placements_a if player_id == "player_a" else placements_b
+	if not placements.has(slot_type):
+		placements[slot_type] = {}
+	placements[slot_type][slot_id] = item_id
+	return {"ok": true, "error": ""}
+
+func get_player_planning_status(player_id: String) -> Dictionary:
+	var placements := placements_a if player_id == "player_a" else placements_b
+	var has_tower := false
+	for v in placements.get("defense", {}).values():
+		if v != null:
+			has_tower = true
+	var has_creep := false
+	for v in placements.get("send", {}).values():
+		if v != null:
+			has_creep = true
+	var has_spell := false
+	for v in placements.get("spells", {}).values():
+		if v != null:
+			has_spell = true
+	return {"has_tower": has_tower, "has_creep": has_creep, "has_spell": has_spell}
+
+func is_planning_valid() -> bool:
+	var status_a := get_player_planning_status("player_a")
+	var status_b := get_player_planning_status("player_b")
+	return status_a["has_tower"] and status_a["has_creep"] and status_b["has_tower"] and status_b["has_creep"]
+
+func init_placements(dict: Dictionary) -> void:
+	dict["defense"] = {}
+	for i in range(1, defense_slots + 1):
+		dict["defense"]["slot_" + str(i)] = null
+	dict["send"] = {}
+	for i in range(1, send_lanes + 1):
+		dict["send"]["lane_" + str(i)] = null
+	dict["spells"] = {}
+	for i in range(1, spell_slots + 1):
+		dict["spells"]["spell_slot_" + str(i)] = null
+
+func reset_planning() -> void:
+	selected_planning_item = ""
+	planning_locked = false
+	planning_feedback = ""
+	init_placements(placements_a)
+	init_placements(placements_b)
+
+func build_battle_preview_from_placements() -> Dictionary:
+	return {
+		"player_a": placements_a,
+		"player_b": placements_b
+	}

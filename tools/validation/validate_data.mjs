@@ -138,6 +138,19 @@ async function main() {
           process.exit(1);
         }
       }
+      // Validate planning_config
+      if (!godotData.planning_config) {
+        throw new Error("sample_pvp_flow.json must contain 'planning_config'.");
+      }
+      if (typeof godotData.planning_config.defense_slot_count !== "number" || godotData.planning_config.defense_slot_count <= 0) {
+        throw new Error("'defense_slot_count' must be a positive number.");
+      }
+      if (typeof godotData.planning_config.send_lane_count !== "number" || godotData.planning_config.send_lane_count <= 0) {
+        throw new Error("'send_lane_count' must be a positive number.");
+      }
+      if (typeof godotData.planning_config.spell_slot_count !== "number" || godotData.planning_config.spell_slot_count <= 0) {
+        throw new Error("'spell_slot_count' must be a positive number.");
+      }
     } catch (godotErr) {
       console.error("Godot prototype data validation failed:", godotErr.message);
       process.exit(1);
