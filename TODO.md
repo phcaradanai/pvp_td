@@ -89,13 +89,106 @@
   - [x] Implement testable route handlers for match results and reward claims
   - [x] Write backend API tests
 
-## Next Possible Steps
-The pure data contracts for the PvP loop are solid, the client visual prototype is complete, and the backend API skeleton is built.
+- [x] **M14 – Auth / Session Contract**
+  - [x] Create auth_errors.mjs
+  - [x] Implement validateRequestSession
+  - [x] Implement validateMatchParticipation
+  - [x] Write auth contract tests
 
-- **M14 Auth/Session Contract**: Define how player sessions are securely validated.
-- **M14B Backend Persistence Design**: Define schema and database mocks.
-- **M14C Godot Scene Prototype**: Connect a real game engine to the UI shell.
-- **M15 Real Combat Prototype**: Begin building actual gameplay.
+- [x] **M15 - Backend API Auth Integration**
+  - [x] Protected API handlers validate session before contracts
+  - [x] Protected API handlers validate match participation before contracts
+  - [x] Auth-aware API samples and tests added
+
+- [x] **M16 - Backend Persistence Design**
+  - [x] Repository contract metadata
+  - [x] In-memory repository test doubles
+  - [x] Persistence service for validated match results
+  - [x] Persistence service for reward claim previews
+  - [x] Tests pass
+
+- [x] **M17 - Backend API Persistence Integration**
+  - [x] Protected validate-and-persist match result handler
+  - [x] Protected reward claim preview-and-persist handler
+  - [x] Persistence route metadata
+  - [x] No persistence on failed auth/session, participation, or contract validation
+  - [x] Tests pass
+
+- [x] **M18 - Idempotency Contract**
+  - [x] Stable request fingerprinting
+  - [x] In-memory idempotency store test double
+  - [x] Replay returns stored response
+  - [x] Conflicting key reuse fails
+  - [x] Tests pass
+
+- [x] **M19 - API Idempotency Integration**
+  - [x] Idempotent protected match result validate-and-persist handler
+  - [x] Idempotent protected reward claim preview-and-persist handler
+  - [x] Replay returns stored response without repeat persistence
+  - [x] Conflict returns failure without persistence
+  - [x] Tests pass
+
+- [x] **M20 - Session Store Contract**
+  - [x] Pure session store contract helpers
+  - [x] In-memory session store test double
+  - [x] Active session validation through injected store
+  - [x] Session revocation and future validation failure
+  - [x] Tests pass
+
+- [x] **M21 - API Session Store Integration**
+  - [x] Store-backed protected match result and reward claim handlers
+  - [x] Store-backed protected persistence handlers
+  - [x] Store-backed idempotent persistence handlers
+  - [x] Failed session validation prevents persistence and idempotency success saves
+  - [x] Tests pass
+
+- [x] **M22 - Match Store Contract**
+  - [x] Pure match store contract helpers
+  - [x] In-memory match store test double
+  - [x] Match context validation through injected store
+  - [x] Match participation validation through injected store
+  - [x] Match status update through injected store
+  - [x] Clone prevents mutation leaks
+  - [x] Tests pass
+
+- [x] **M23 - API Match Store Integration**
+  - [x] Store-match protected match result validate handler
+  - [x] Store-match protected reward claim preview handler
+  - [x] Store-match protected validate-and-persist match result handler
+  - [x] Store-match protected reward claim preview-and-persist handler
+  - [x] Store-match idempotent protected validate-and-persist match result handler
+  - [x] Store-match idempotent protected reward claim preview-and-persist handler
+  - [x] Client-submitted server_context ignored; matchStore is authoritative
+  - [x] Route metadata includes store-match routes
+  - [x] Tests pass
+
+- [x] **M24 - Godot Scene Prototype**
+  - [x] `godot_prototype/data/sample_pvp_flow.json` — 7-screen data with screen_data per phase
+  - [x] `godot_prototype/scripts/pvp_flow_state.gd` — PvpFlowState (RefCounted), JSON load, navigation
+  - [x] `godot_prototype/scripts/pvp_flow_view_model.gd` — PvpFlowViewModel (RefCounted), static build()
+  - [x] `godot_prototype/scripts/pvp_flow_controller.gd` — extends Control, wires signals, calls _render()
+  - [x] `godot_prototype/scenes/pvp_flow_prototype.tscn` — Godot 4 scene format=3
+  - [x] `godot_prototype/project.godot` — config_version=5, no icon reference
+  - [x] `godot_prototype/README.md` and `godot_prototype/tests/README.md`
+  - [x] `tools/validation/tests/godot_prototype_structure.test.mjs` — 10 file-existence + screens subtests
+  - [x] validate_data.mjs updated with separate Godot data check block
+  - [x] 330 tests pass, validate:data passes
+
+- [x] **M25 - Godot Draft Interaction Prototype**
+  - [x] `godot_prototype/data/sample_pvp_flow.json` — added `shared_pool` key with 6 pool items; updated draft/planning/battle screen_data for dynamic content
+  - [x] `godot_prototype/scripts/pvp_flow_state.gd` — added pool_items, budget_max, draft_picks_a/b, current_drafter, draft_locked; pick_shared_pool_item(), lock_draft(), reset_draft(), can_advance_from_current_screen(); go_next/reset updated
+  - [x] `godot_prototype/scripts/pvp_flow_view_model.gd` — build(state, feedback); show_pool_items, pool_item_cards, lock_draft_enabled; _build_draft_panels, _build_planning_panels, _build_battle_panels
+  - [x] `godot_prototype/scripts/pvp_flow_controller.gd` — pick_shared_pool_item(), lock_draft(), reset_draft(), can_advance_from_current_screen(), _rebuild_pool_buttons() with .bind(); LockDraftButton wired
+  - [x] `godot_prototype/scenes/pvp_flow_prototype.tscn` — LockDraftButton added to Controls; PoolScrollContainer + PoolItemsContainer added to CenterPanel/VBox
+  - [x] `tools/validation/tests/godot_draft_interaction_structure.test.mjs` — 36 content-grep + JSON structure tests
+  - [x] 366 tests pass, validate:data passes
+
+## Next Possible Steps
+The pure data contracts, API skeleton, auth/session contracts, persistence contracts, protected API persistence integration, idempotency contracts, API idempotency integration, session store contract, API session store integration, match store contract, API match store integration, Godot scene prototype, and Godot interactive draft prototype are built.
+
+- **M25 Real Combat Prototype**: Begin building actual tower/creep gameplay in Godot.
+- **M25B Real DB Adapter Design**: Design production database adapters without implementing them.
+- **M25C WebSocket Skeleton**: Design the real-time match state sync layer.
 
 - [ ] **Fun Validation**
   - Playtesting framework

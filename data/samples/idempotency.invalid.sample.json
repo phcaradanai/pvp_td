@@ -1,0 +1,36 @@
+{
+  "missing_idempotency_key": {
+    "request_payload": {
+      "match_id": "local_match_001"
+    }
+  },
+  "missing_request_payload": {
+    "idempotency_key": "req_missing_payload"
+  },
+  "conflicting_request_payload": {
+    "idempotency_key": "req_persist_match_001",
+    "request_payload": {
+      "match_id": "local_match_001",
+      "accepted_result": {
+        "winner": "player_b",
+        "is_draw": false,
+        "reason": "PLAYER_B_HIGHER_CORE_HP",
+        "score": {
+          "player_a": { "core_hp": 0 },
+          "player_b": { "core_hp": 100 }
+        }
+      }
+    }
+  },
+  "missing_fingerprint": {
+    "idempotency_key": "req_missing_fingerprint",
+    "response": {
+      "ok": true
+    }
+  },
+  "missing_response": {
+    "idempotency_key": "req_missing_response",
+    "fingerprint": "stable_fingerprint"
+  },
+  "invalid_store": {}
+}

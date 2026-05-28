@@ -1,0 +1,58 @@
+{
+  "valid_active_session_seed": {
+    "sess_001": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "revoked_reason": null
+    }
+  },
+  "valid_multiple_sessions_seed": {
+    "sess_010": {
+      "session_id": "sess_010",
+      "player_id": "player_a",
+      "status": "active",
+      "created_at": "2026-01-03T00:00:00.000Z",
+      "updated_at": "2026-01-03T00:00:00.000Z",
+      "revoked_reason": null
+    },
+    "sess_002": {
+      "session_id": "sess_002",
+      "player_id": "player_b",
+      "status": "active",
+      "created_at": "2026-01-02T00:00:00.000Z",
+      "updated_at": "2026-01-02T00:00:00.000Z",
+      "revoked_reason": null
+    },
+    "sess_003": {
+      "session_id": "sess_003",
+      "player_id": "player_a",
+      "status": "revoked",
+      "created_at": "2026-01-02T00:00:00.000Z",
+      "updated_at": "2026-01-02T00:00:00.000Z",
+      "revoked_reason": "USER_LOGOUT"
+    },
+    "sess_001": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "revoked_reason": null
+    }
+  },
+  "valid_validate_session_from_store": {
+    "request_id": "req_session_store_001",
+    "session": {
+      "session_id": "sess_001",
+      "player_id": "player_a"
+    }
+  },
+  "valid_revoke_session": {
+    "request_id": "req_revoke_001",
+    "session_id": "sess_001",
+    "reason": "USER_LOGOUT"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "valid_match_seed": {
+    "local_match_001": {
+      "match_id": "local_match_001",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "completed",
+      "phase": "result_preview",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "result": null
+    }
+  },
+  "valid_multiple_matches_seed": {
+    "local_match_001": {
+      "match_id": "local_match_001",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "completed",
+      "phase": "result_preview",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "result": null
+    },
+    "local_match_002": {
+      "match_id": "local_match_002",
+      "allowed_player_ids": ["player_a", "player_c"],
+      "status": "active",
+      "phase": "battle_preview",
+      "created_at": "2026-01-02T00:00:00.000Z",
+      "updated_at": "2026-01-02T00:00:00.000Z",
+      "result": null
+    },
+    "local_match_003": {
+      "match_id": "local_match_003",
+      "allowed_player_ids": ["player_b", "player_c"],
+      "status": "pending",
+      "phase": "planning",
+      "created_at": "2026-01-03T00:00:00.000Z",
+      "updated_at": "2026-01-03T00:00:00.000Z",
+      "result": null
+    }
+  },
+  "valid_validate_match_from_store": {
+    "request_id": "req_001",
+    "match_id": "local_match_001"
+  },
+  "valid_validate_match_participation": {
+    "request_id": "req_001",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "match_id": "local_match_001"
+  },
+  "valid_update_match_status": {
+    "request_id": "req_status_001",
+    "match_id": "local_match_001",
+    "status": "completed"
+  },
+  "valid_save_match_result": {
+    "match_id": "local_match_001",
+    "result": {
+      "winner": "player_a",
+      "is_draw": false,
+      "reason": "PLAYER_A_HIGHER_CORE_HP",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 0 }
+      }
+    }
+  }
+}

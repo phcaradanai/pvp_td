@@ -92,11 +92,23 @@ test("Backend API Skeleton tests", async (t) => {
 
   await t.test("route metadata includes all expected routes", () => {
     assert.ok(routeMetadata.routes);
-    assert.equal(routeMetadata.routes.length, 3);
+    assert.equal(routeMetadata.routes.length, 21);
     const paths = routeMetadata.routes.map(r => r.path);
     assert.ok(paths.includes("/health"));
     assert.ok(paths.includes("/match-results/validate"));
     assert.ok(paths.includes("/reward-claims/preview"));
+    assert.ok(paths.includes("/protected/match-results/validate"));
+    assert.ok(paths.includes("/protected/reward-claims/preview"));
+    assert.ok(paths.includes("/protected/match-results/validate-and-persist"));
+    assert.ok(paths.includes("/protected/reward-claims/preview-and-persist"));
+    assert.ok(paths.includes("/idempotent/protected/match-results/validate-and-persist"));
+    assert.ok(paths.includes("/idempotent/protected/reward-claims/preview-and-persist"));
+    assert.ok(paths.includes("/store/protected/match-results/validate"));
+    assert.ok(paths.includes("/store/protected/reward-claims/preview"));
+    assert.ok(paths.includes("/store/protected/match-results/validate-and-persist"));
+    assert.ok(paths.includes("/store/protected/reward-claims/preview-and-persist"));
+    assert.ok(paths.includes("/store/idempotent/protected/match-results/validate-and-persist"));
+    assert.ok(paths.includes("/store/idempotent/protected/reward-claims/preview-and-persist"));
   });
 
   await t.test("handlers do not mutate input", () => {

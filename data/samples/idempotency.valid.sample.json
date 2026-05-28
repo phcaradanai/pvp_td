@@ -1,0 +1,68 @@
+{
+  "stable_fingerprint_payload": {
+    "match_id": "local_match_001",
+    "accepted_result": {
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    }
+  },
+  "new_match_result_request": {
+    "idempotency_key": "req_persist_match_001",
+    "request_payload": {
+      "match_id": "local_match_001",
+      "accepted_result": {
+        "winner": "player_a",
+        "is_draw": false,
+        "reason": "PLAYER_A_HIGHER_CORE_HP",
+        "score": {
+          "player_a": { "core_hp": 100 },
+          "player_b": { "core_hp": 0 }
+        }
+      }
+    }
+  },
+  "replay_match_result_request": {
+    "idempotency_key": "req_persist_match_001",
+    "request_payload": {
+      "accepted_result": {
+        "score": {
+          "player_b": { "core_hp": 0 },
+          "player_a": { "core_hp": 100 }
+        },
+        "reason": "PLAYER_A_HIGHER_CORE_HP",
+        "is_draw": false,
+        "winner": "player_a"
+      },
+      "match_id": "local_match_001"
+    }
+  },
+  "new_reward_claim_request": {
+    "idempotency_key": "req_persist_reward_001",
+    "request_payload": {
+      "claim_id": "claim_req_persist_reward_001",
+      "match_id": "local_match_001",
+      "claim_preview": {
+        "match_id": "local_match_001",
+        "rewards": {},
+        "profiles": {}
+      }
+    }
+  },
+  "replay_reward_claim_request": {
+    "idempotency_key": "req_persist_reward_001",
+    "request_payload": {
+      "match_id": "local_match_001",
+      "claim_preview": {
+        "profiles": {},
+        "rewards": {},
+        "match_id": "local_match_001"
+      },
+      "claim_id": "claim_req_persist_reward_001"
+    }
+  }
+}

@@ -36,6 +36,13 @@
 - Mastery may unlock cosmetic flourishes (e.g., aura effects) or badge icons.
 - Mastery progression is tracked server‑side and displayed client‑side.
 
+## Persistence Note
+- Stored unlock progression and reward claim previews must not contain or apply permanent PvP stat advantages.
+- Persistence stores validated previews; it does not create power grants.
+- Reward claim persistence must still reject any unlock configuration that grants permanent PvP stat advantage.
+- Unlock progression persistence must be idempotent so retries cannot duplicate rewards or unlock grants.
+- Duplicate reward claim requests must not duplicate unlock progression.
+
 ## Ranked Normalization Rules
 - In ranked matches, rewards are normalized based on opponent skill and match difficulty.
 - Unlock progression from ranked play is limited to **new options** and cosmetics; no direct stat advantages are granted.

@@ -1,0 +1,134 @@
+{
+  "screens": [
+    "arsenal_preview",
+    "shared_pool_preview",
+    "draft_preview",
+    "planning_preview",
+    "battle_preview",
+    "result_preview",
+    "reward_preview"
+  ],
+  "shared_pool": {
+    "budget_max": 10,
+    "items": [
+      { "id": "archer", "name": "Archer", "category": "tower", "cost": 2 },
+      { "id": "cannon", "name": "Cannon", "category": "tower", "cost": 3 },
+      { "id": "scout", "name": "Scout", "category": "creep", "cost": 1 },
+      { "id": "mage", "name": "Mage", "category": "tower", "cost": 3 },
+      { "id": "tank", "name": "Tank", "category": "creep", "cost": 2 },
+      { "id": "fireball", "name": "Fireball", "category": "spell", "cost": 2 }
+    ]
+  },
+  "screen_data": {
+    "arsenal_preview": {
+      "title": "Arsenal Preview",
+      "description": "Both players reveal their cost-limited arsenals before the match.",
+      "player_a": {
+        "label": "Player A Arsenal",
+        "items": ["Tower: Archer (cost 2)", "Tower: Cannon (cost 3)", "Creep: Scout (cost 1)"],
+        "budget_used": 6,
+        "budget_max": 10
+      },
+      "player_b": {
+        "label": "Player B Arsenal",
+        "items": ["Tower: Mage (cost 3)", "Creep: Tank (cost 2)", "Spell: Fireball (cost 2)"],
+        "budget_used": 7,
+        "budget_max": 10
+      },
+      "center": {
+        "label": "Match Info",
+        "content": "Match ID: local_match_001\nMode: 1v1 Ranked\nStatus: Waiting for draft"
+      }
+    },
+    "shared_pool_preview": {
+      "title": "Draft Phase",
+      "description": "Pick from the shared pool. Players alternate turns. Each needs at least 1 tower and 1 creep.",
+      "player_a": {
+        "label": "Player A Draft"
+      },
+      "player_b": {
+        "label": "Player B Draft"
+      },
+      "center": {
+        "label": "Shared Pool",
+        "content": "Click an item to draft it."
+      }
+    },
+    "draft_preview": {
+      "title": "Draft Summary",
+      "description": "Draft complete. Final loadouts are shown below.",
+      "player_a": {
+        "label": "Player A Final Loadout",
+        "items": ["(see drafted picks)"]
+      },
+      "player_b": {
+        "label": "Player B Final Loadout",
+        "items": ["(see drafted picks)"]
+      },
+      "center": {
+        "label": "Draft Status",
+        "content": "Draft locked.\nProceeding to Planning Phase."
+      }
+    },
+    "planning_preview": {
+      "title": "Planning Phase",
+      "description": "Players place their drafted units on the battlefield grid.",
+      "player_a": {
+        "label": "Player A Placement"
+      },
+      "player_b": {
+        "label": "Player B Placement"
+      },
+      "center": {
+        "label": "Grid Status",
+        "content": "Phase: Planning\n(Placeholder - no real grid yet)"
+      }
+    },
+    "battle_preview": {
+      "title": "Battle Phase",
+      "description": "Towers fire, creeps advance, and the match resolves. (Placeholder - no real combat.)",
+      "player_a": {
+        "label": "Player A Combat"
+      },
+      "player_b": {
+        "label": "Player B Combat"
+      },
+      "center": {
+        "label": "Battle Log",
+        "content": "Round 1: Towers fire\nRound 2: Creeps advance\nRound 3: Match concludes\n(Simulated placeholder)"
+      }
+    },
+    "result_preview": {
+      "title": "Match Result",
+      "description": "The authoritative server result is shown. Client never decides the winner.",
+      "player_a": {
+        "label": "Player A Result",
+        "items": ["Result: WINNER", "Core HP remaining: 85", "Performance: Excellent"]
+      },
+      "player_b": {
+        "label": "Player B Result",
+        "items": ["Result: DEFEATED", "Core HP remaining: 60", "Performance: Good"]
+      },
+      "center": {
+        "label": "Official Result",
+        "content": "Winner: Player A\nMatch ID: local_match_001\nValidated by: Server\nStatus: Completed"
+      }
+    },
+    "reward_preview": {
+      "title": "Reward Preview",
+      "description": "Post-match rewards are normalized and server-authoritative. No client-side reward calculation.",
+      "player_a": {
+        "label": "Player A Rewards",
+        "items": ["XP: +150 (win bonus)", "Gold: +75", "Unlock: Archer Skin (cosmetic)"]
+      },
+      "player_b": {
+        "label": "Player B Rewards",
+        "items": ["XP: +80 (participation)", "Gold: +40", "No new unlocks"]
+      },
+      "center": {
+        "label": "Reward Summary",
+        "content": "Rewards normalized for fairness.\nUnlocks: cosmetic only.\nNo permanent PvP stat advantage."
+      }
+    }
+  }
+}

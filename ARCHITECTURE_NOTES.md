@@ -40,6 +40,17 @@ To bridge the gap between validation code and a full game engine, a **Client Pro
 4. **Visual Shell** (`client/prototype/visual`): A plain HTML/CSS/JS shell rendering the UI states without a real game engine.
 5. **Scenario Runner**: The visual shell supports hot-swapping between full E2E match states (e.g. draws, core HP overrides) proving the UI cleanly renders all scenarios without executing any game code. The client reward preview consumes sample/contract data, while the backend remains authoritative. Future APIs can replace sample reward data.
 
+### Godot Scene Prototype (M24 → M25)
+
+To validate the 7-screen PvP flow in a real game engine, a **Godot 4.6.2 Scene Prototype** (`godot_prototype/`) was built and extended with interactive drafting.
+
+- **PvpFlowState** (`class_name`, extends `RefCounted`): Loads `sample_pvp_flow.json`, holds `current_index`, `screen_data`, `pool_items`, `draft_picks_a/b`, `current_drafter`, `draft_locked`. Provides navigation, draft logic (`pick_shared_pool_item`, `lock_draft`, `reset_draft`, `can_advance_from_current_screen`), and budget helpers. Not a node.
+- **PvpFlowViewModel** (`class_name`, extends `RefCounted`): Pure mapping from state to flat display strings via static `build(state, feedback)`. Computes `pool_item_cards`, `show_pool_items`, `lock_draft_enabled`. Screen-routing: draft screen uses `_build_draft_panels`; planning/battle screens use `_build_planning_panels`/`_build_battle_panels` when `draft_locked`; all others read from `screen_data`. Not a node.
+- **PvpFlowController** (extends `Control`): Owns `@onready` node references, creates State and ViewModel, wires button signals including LockDraftButton. Dynamically builds pool item buttons via `_rebuild_pool_buttons()` using `.bind()` for signal connections (not lambdas — avoids GDScript 4 loop-variable capture issue). Stores `_last_feedback` and passes it to `build()`. Calls `_render()` on every state change. No global mutable singletons.
+- **7 screens**: `arsenal_preview → shared_pool_preview → draft_preview → planning_preview → battle_preview → result_preview → reward_preview`.
+- Godot prototype has no real combat, networking, WebSocket, backend calls, matchmaking, or database.
+- Structure and content verified by `tools/validation/tests/godot_prototype_structure.test.mjs` (10 tests) and `tools/validation/tests/godot_draft_interaction_structure.test.mjs` (36 tests).
+
 ## Proposed Client Module Structure
 ```
 client/
@@ -97,6 +108,7 @@ backend/
 4. **Integration Harness**: `local_e2e_loop_harness.mjs` wires these modules end-to-end to prove the loop natively connects without duplicating validation or phase logic. Future gameplay loop must replace this cleanly.
 5. **Reward/Unlock Mock**: `reward_unlock_mock.mjs` is separate from match result generation. Future backend should own authoritative rewards; the client must not decide final rewards in production.
 7. **Backend API Skeleton**: `backend/api` contains HTTP route handlers that wrap the authoritative contracts (`match_result_contract`, `reward_claim_contract`). These handlers isolate HTTP request/response parsing from the domain logic and explicitly do not persist data yet. Future server runtimes will invoke these handlers and add authentication, rate-limiting, and persistence.
+8. **Auth / Session Contract**: `backend/auth/auth_session_contract.mjs` provides identity validation as a separate layer from route handlers. `validateRequestSession` checks client-claimed sessions against the server-side session store (currently a `server_context.known_sessions` fixture). `validateMatchParticipation` ensures only actual match participants can submit results or claim rewards. In production, `server_context` will be replaced by a real session store and the contracts will be invoked as middleware before route handlers.
 3. **Pre‑match**: Players select arsenals (cost‑limited) -> sent to server.
 4. **Pool Merge**: Server combines selections into a Shared Pool.
 5. **Draft Phase**: Server orchestrates turn‑based picks, broadcasting updates.
@@ -118,6 +130,69 @@ backend/
 - **Normalization**: Apply rank‑based scaling to ensure fairness.
 - **Unlock Application**: Unlock tree is consulted; only cosmetic or new‑option unlocks are granted.
 - **Persistence**: Update player profile in `backend/inventory` and `backend/unlock`.
+
+## Backend Persistence Design
+- `backend/persistence` defines replaceable repository ports for profiles, sessions, matches, match results, and reward claim previews.
+- Real database adapters must implement the same methods as the pure contracts in `backend/persistence/repository_contracts.mjs`.
+- In-memory repositories exist only for deterministic contract tests and must clone input/output to prevent mutation leaks.
+- The persistence service saves validated match results and reward claim previews only after API/auth/contracts have established session validity, match participation, and accepted backend contract output.
+- Persistence does not calculate rewards or unlocks. Reward calculation remains in backend contracts and validation modules.
+- Stored unlock progression must preserve the no permanent PvP stat advantage rule.
+
+## Backend API Persistence Integration
+- Protected API persistence routes follow this order: request validation -> auth/session validation -> match participation validation -> backend contract validation -> persistence service.
+- Repositories are injected into handlers. There is no global repository singleton.
+- Failed request, auth/session, participation, match contract, or reward contract validation must not persist anything.
+- Client-submitted rewards are still rejected by the match result contract before persistence can run.
+- The integration still uses in-memory repositories as test doubles only; no real database adapter exists yet.
+
+## Idempotency Contract
+- `backend/idempotency` defines pure request fingerprinting, replay detection, conflict detection, and completed response storage.
+- Future API flow should be: request -> idempotency check -> auth/session -> participation -> contract -> persistence -> save idempotency result.
+- Replaying the same `idempotency_key` with the same request fingerprint returns the stored response.
+- Reusing the same `idempotency_key` with a different payload fails with `IDEMPOTENCY_CONFLICT`.
+- Duplicate match result and reward claim requests must not create duplicate reward writes or conflicting match result writes.
+- The in-memory idempotency store is a deterministic test double only. No Redis, DB unique constraint, or production middleware exists yet.
+
+## API Idempotency Integration
+- Idempotent protected API routes follow this order: request -> idempotency check -> auth/session -> participation -> contract -> persistence -> save idempotency result.
+- If the idempotency check returns replay, the handler returns the stored response and does not call persistence again.
+- If the same `idempotency_key` is reused with a different payload, the handler returns conflict and does not persist.
+- Idempotency success records are saved only after successful persistence. Failed auth, participation, contract validation, client-submitted reward rejection, or persistence failure does not save a completed idempotency response.
+- The integration still uses injected in-memory stores only. No Redis, DB unique constraint, or production middleware has been added.
+
+## Session Store Contract
+- `backend/session` defines a replaceable session store port for future auth/session validation.
+- The current auth/session contract still supports `server_context.known_sessions` fixtures; the session store contract is the next step toward injected runtime session lookup.
+- Future protected API flow should be: request -> idempotency -> session store validation -> participation -> backend contract -> persistence.
+- Store-backed validation accepts only active, non-revoked sessions. Unknown, mismatched, revoked, or inactive sessions fail before protected PvP actions can proceed.
+- The in-memory session store is a deterministic test double only. No Redis, database adapter, JWT verification, login flow, or production middleware exists yet.
+
+## API Session Store Integration
+- Store-backed protected API routes follow this order: request -> idempotency when applicable -> session store -> match participation -> backend contract -> persistence -> idempotency result save when applicable.
+- `sessionStore` is injected per handler call. There is no global mutable session singleton.
+- Failed store-backed session validation must not persist match results or reward claims and must not save idempotency success responses.
+- Existing fixture-based `server_context.known_sessions` handlers remain for compatibility, while the new store-backed handlers define the preferred future API boundary.
+- A future Redis or DB session adapter can replace the in-memory store by preserving the `backend/session` contract.
+
+## Match Store Contract
+
+- `backend/match_store` defines a replaceable match store port for future API handler injection.
+- The current `server_context.match_context` fixture path remains for backward compatibility; the match store contract is the next step toward injected runtime match lookup.
+- Future protected API flow should be: request → idempotency → sessionStore → matchStore → backend contract → persistence.
+- Store-backed match validation accepts only matches that exist in the injected store. Unknown matches fail before protected PvP actions can proceed.
+- Store-backed participation validation checks that the requesting player is in `allowed_player_ids` and that the match status is a valid value.
+- The in-memory match store is a deterministic test double only. No real database adapter, matchmaking runtime, WebSocket match sync, or production middleware exists yet.
+
+## API Match Store Integration
+
+- Store-match protected API routes follow this order: request → idempotency when applicable → sessionStore → matchStore → backend contract → persistence → idempotency result save when applicable.
+- `matchStore` is injected per handler call. There is no global mutable match singleton.
+- Client-submitted `server_context.match_context` and `server_context.result_context` are ignored by store-match handlers — the match store is the authoritative source for match context.
+- After `validateMatchParticipationFromStore` confirms the player is in the match, a second `matchStore.getMatch` call retrieves `allowed_player_ids` for the backend contract's `server_context`. The `match_status` and `match_phase` come from `participation_context`.
+- Failed match store validation must not persist match results or reward claims and must not save idempotency success responses.
+- Existing fixture-based and session-store-only handlers remain for compatibility, while the store-match handlers define the preferred future API boundary.
+- A future real database match adapter can replace the in-memory store by preserving the `backend/match_store` contract.
 
 ## Open Design Questions (for future agents)
 - Exact JSON schema for `unlock_tree.json` and how tiered cosmetic tiers are represented.

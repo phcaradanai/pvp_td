@@ -1,5 +1,286 @@
 # DEV_CHANGELOG.md
 
+## 2026-05-28
+- **Task name**: M25 Dead-end Fix — Draft Viability Guard
+- **Files created**:
+  - `tools/validation/tests/godot_draft_viability_structure.test.mjs` (22 content-grep tests)
+- **Files updated**:
+  - `godot_prototype/scripts/pvp_flow_state.gd` (added: can_pick_item_without_breaking_draft, is_draft_deadlocked, get_player_requirement_status, get_remaining_available_items, is_draft_completable_after_pick, _picks_status; updated pick_shared_pool_item to run viability guard before mutating state)
+  - `godot_prototype/scripts/pvp_flow_view_model.gd` (added: draft_status_text field, viable bool per pool_item_card, _req_status_text, _build_draft_status_text, _missing_requirements_text; player panels show Tower ✓/✗ Creep ✓/✗; center shows deadlock message)
+  - `godot_prototype/scripts/pvp_flow_controller.gd` (added _draft_status_label @onready at DraftStatusLabel; _render binds vm.draft_status_text; _rebuild_pool_buttons adds ⚠ indicator for non-viable affordable items; viability-blocked buttons stay enabled)
+  - `godot_prototype/scenes/pvp_flow_prototype.tscn` (added DraftStatusLabel node in Controls HBoxContainer)
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+  - `AGENT_CONTEXT.md`
+- **Tests**: 388 pass (366 existing + 22 new viability structure tests), validate:data passes
+
+## 2026-05-28
+- **Task name**: M25 Godot Draft Interaction Prototype
+- **Files created**:
+  - `tools/validation/tests/godot_draft_interaction_structure.test.mjs` (36 content-grep + JSON structure tests)
+- **Files updated**:
+  - `godot_prototype/data/sample_pvp_flow.json` (added `shared_pool` key with 6 pool items; updated draft/planning/battle screen_data)
+  - `godot_prototype/scripts/pvp_flow_state.gd` (draft state: pool_items, budget_max, draft_picks_a/b, current_drafter, draft_locked; new methods: pick_shared_pool_item, lock_draft, reset_draft, can_advance_from_current_screen, budget_used_for, budget_remaining_for, get_item_by_id, is_drafted)
+  - `godot_prototype/scripts/pvp_flow_view_model.gd` (build(state, feedback); pool_item_cards, show_pool_items, lock_draft_enabled; _build_draft_panels, _build_planning_panels, _build_battle_panels)
+  - `godot_prototype/scripts/pvp_flow_controller.gd` (pick_shared_pool_item, lock_draft, reset_draft, can_advance_from_current_screen, _rebuild_pool_buttons with .bind(), LockDraftButton wired)
+  - `godot_prototype/scenes/pvp_flow_prototype.tscn` (LockDraftButton in Controls; PoolScrollContainer + PoolItemsContainer in CenterPanel/VBox)
+  - `godot_prototype/README.md` (M25 draft interaction docs)
+  - `godot_prototype/tests/README.md` (updated manual test checklist for draft interaction)
+  - `ARCHITECTURE_NOTES.md` (Godot Scene Prototype section updated for M25)
+  - `AGENT_CONTEXT.md` (milestone updated to M25)
+  - `TODO.md` (M25 complete)
+- **Tests**: 366 pass (330 existing + 36 new draft interaction structure tests), validate:data passes
+
+## 2026-05-28
+- **Task name**: M24 Godot Scene Prototype
+- **Files created**:
+  - `godot_prototype/data/sample_pvp_flow.json`
+  - `godot_prototype/scripts/pvp_flow_state.gd`
+  - `godot_prototype/scripts/pvp_flow_view_model.gd`
+  - `godot_prototype/scripts/pvp_flow_controller.gd`
+  - `godot_prototype/scenes/pvp_flow_prototype.tscn`
+  - `godot_prototype/project.godot`
+  - `godot_prototype/README.md`
+  - `godot_prototype/tests/README.md`
+  - `tools/validation/tests/godot_prototype_structure.test.mjs`
+- **Files updated**:
+  - `tools/validation/validate_data.mjs` (separate Godot data check block)
+  - `ARCHITECTURE_NOTES.md` (Godot Scene Prototype section)
+  - `docs/GAME_DESIGN.md` (Prototype Flow section)
+  - `docs/PVP_RULES.md` (Godot Prototype section)
+  - `TODO.md` (M24 complete, M25 options)
+  - `AGENT_CONTEXT.md` (milestone M24, NO REAL GODOT COMBAT YET constraint)
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Created a minimal Godot 4.6.2 scene prototype demonstrating the full 7-screen PvP flow (arsenal_preview → shared_pool_preview → draft_preview → planning_preview → battle_preview → result_preview → reward_preview). Architecture follows the Option A pattern: PvpFlowState and PvpFlowViewModel are `class_name RefCounted` instances (not nodes); PvpFlowController extends Control and owns all @onready node references. Screen data is loaded from sample_pvp_flow.json at startup. Buttons wire via signal `.connect()` syntax. A Node.js file-existence test suite verifies all 8 required files exist and the screens array contains all 7 names. validate_data.mjs gained a separate try/catch block for the Godot data file.
+- **Why it changed**: To validate the PvP flow in a real game engine. The JS prototype (M10A-M10C) uses 6 screens; the Godot prototype makes planning and battle explicit phases (7 screens). No real combat, networking, or backend calls.
+- **Risk**: Low. All new files; no existing code modified except validate_data.mjs (additive) and docs.
+- **Tests run**: `npm test` passed with 330 tests (320 prior + 10 new); `npm run validate:data` passed.
+- **Known issues**: No real tower firing, creep movement, grid logic, economy, WebSocket, backend API calls, matchmaking, or real combat in the Godot prototype.
+
+## 2026-05-28
+- **Task name**: M23 API Match Store Integration
+- **Files created**:
+  - `backend/api/tests/match_store_route_handlers.test.mjs`
+  - `data/samples/backend_api_match_store.valid.sample.json`
+  - `data/samples/backend_api_match_store.invalid.sample.json`
+- **Files updated**:
+  - `backend/api/api_errors.mjs` (MISSING_MATCH_STORE, MATCH_STORE_VALIDATION_FAILED, STORE_MATCH_PROTECTED_ROUTE_FAILED)
+  - `backend/api/route_handlers.mjs` (6 new handlers + helpers)
+  - `backend/api/route_contracts.mjs` (6 new /store-match/ routes)
+  - `backend/api/tests/route_handlers.test.mjs` (route count updated to 21)
+  - `backend/api/README.md`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added 6 store-match protected and idempotent route handlers that load match context from an injected `matchStore` via `validateMatchParticipationFromStore`. Client-submitted `server_context.match_context` is explicitly ignored. After participation validates, a second `matchStore.getMatch` call retrieves `allowed_player_ids` for the backend contract's `server_context`. All 6 handler variants are registered in `route_contracts.mjs` under `/store-match/` routes.
+- **Why it changed**: To make the protected API pipeline fully store-backed. The matchStore is now the authoritative source for match context, replacing fixture-based `server_context.match_context` fields. Future real database adapters can replace the in-memory store by implementing the match store contract.
+- **Risk**: Low. New handlers added without removing existing ones. Fixture-based handler path remains intact. The only breaking change was updating the route count assertion from 15 to 21 in route_handlers.test.mjs.
+- **Rollback notes**: Remove the 3 new files, revert 3 error codes from api_errors.mjs, remove the 6 new handlers from route_handlers.mjs, remove 6 routes from route_contracts.mjs, revert route count to 15 in route_handlers.test.mjs, and revert validate_data.mjs.
+- **Tests run**: `npm test` passed with 320 tests; `npm run validate:data` passed.
+- **Known issues**: No real database match adapter, matchmaking runtime, WebSocket match sync, JWT, login system, production HTTP server, or real combat yet.
+
+## 2026-05-28
+- **Task name**: M22 Match Store Contract
+- **Files created**:
+  - `backend/match_store/README.md`
+  - `backend/match_store/match_store_errors.mjs`
+  - `backend/match_store/match_store_contract.mjs`
+  - `backend/match_store/in_memory_match_store.mjs`
+  - `backend/match_store/tests/match_store_contract.test.mjs`
+  - `data/samples/match_store.valid.sample.json`
+  - `data/samples/match_store.invalid.sample.json`
+- **Files updated**:
+  - `backend/README.md`
+  - `backend/api/README.md`
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added a pure match store contract with an in-memory test double. Three contract functions allow loading match context from an injected store, validating match participation from store, and updating match status in store.
+- **Why it changed**: To move protected API handlers toward a replaceable match store boundary instead of relying on `server_context.match_context` fixtures. Future API handlers will inject a real database match adapter.
+- **Risk**: Low. New module is pure functions with injected store. No existing handlers were changed. Fixture-based `match_context` path remains intact.
+- **Rollback notes**: Remove `backend/match_store/`, the two new sample fixture files, and revert `package.json`, `validate_data.mjs`, and documentation updates.
+- **Tests run**: `npm test` passed with 291 tests; `npm run validate:data` passed.
+- **Known issues**: No real database match adapter, matchmaking runtime, WebSocket match state sync, distributed concurrency, fraud prevention, or real combat yet.
+
+## 2026-05-28
+- **Task name**: M21 API Session Store Integration
+- **Files created**:
+  - `backend/api/tests/session_store_route_handlers.test.mjs`
+  - `data/samples/backend_api_session_store.valid.sample.json`
+  - `data/samples/backend_api_session_store.invalid.sample.json`
+- **Files updated**:
+  - `backend/api/api_errors.mjs`
+  - `backend/api/route_handlers.mjs`
+  - `backend/api/route_contracts.mjs`
+  - `backend/api/tests/route_handlers.test.mjs`
+  - `backend/api/README.md`
+  - `backend/auth/README.md`
+  - `backend/session/README.md`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added store-backed protected, persistent, and idempotent API route handlers that validate sessions through injected `sessionStore` before participation, backend contracts, persistence, and idempotency success saving.
+- **Why it changed**: To move new protected API flows toward a replaceable session store boundary without removing existing fixture-based auth tests.
+- **Risk**: Low. New handlers are pure functions using injected stores and repositories. Existing fixture-based handlers remain intact.
+- **Rollback notes**: Remove store-backed handler exports, route metadata, tests, and API session-store fixtures; then revert API error, validation, and documentation updates.
+- **Tests run**: `cmd /c npm test` passed with 276 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real Redis session adapter, DB session adapter, JWT signing/verification, production middleware, session expiry, distributed concurrency, or fraud prevention yet.
+
+## 2026-05-28
+- **Task name**: M20 Session Store Contract
+- **Files created**:
+  - `backend/session/README.md`
+  - `backend/session/session_store_errors.mjs`
+  - `backend/session/session_store_contract.mjs`
+  - `backend/session/in_memory_session_store.mjs`
+  - `backend/session/tests/session_store_contract.test.mjs`
+  - `data/samples/session_store.valid.sample.json`
+  - `data/samples/session_store.invalid.sample.json`
+- **Files updated**:
+  - `backend/README.md`
+  - `backend/auth/README.md`
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added a pure session store contract with deterministic in-memory storage, active-session validation, revocation, player session listing, and mutation-leak protection.
+- **Why it changed**: To prepare auth/session validation for injected session stores while keeping the existing `server_context.known_sessions` fixture path compatible.
+- **Risk**: Low. The module is pure contract/test code and is not wired into production middleware or a real store.
+- **Rollback notes**: Remove `backend/session`, remove session store sample files, and revert documentation, validation, and `package.json` updates.
+- **Tests run**: `cmd /c npm test` passed with 254 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real Redis, DB session adapter, JWT/session signing, production middleware, session expiry, distributed concurrency, or fraud prevention yet.
+
+## 2026-05-28
+- **Task name**: M19 API Idempotency Integration
+- **Files created**:
+  - `backend/api/tests/idempotent_route_handlers.test.mjs`
+  - `data/samples/backend_api_idempotency.valid.sample.json`
+  - `data/samples/backend_api_idempotency.invalid.sample.json`
+- **Files updated**:
+  - `backend/api/api_errors.mjs`
+  - `backend/api/route_handlers.mjs`
+  - `backend/api/route_contracts.mjs`
+  - `backend/api/tests/route_handlers.test.mjs`
+  - `backend/api/README.md`
+  - `backend/idempotency/README.md`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added idempotent protected API validate-and-persist handlers for match results and reward claim previews. Replays return stored responses without repeating persistence, while conflicts return 409.
+- **Why it changed**: To prevent duplicate match result writes and duplicate reward claim writes during client retries before any production Redis or DB constraint layer exists.
+- **Risk**: Low. Handlers remain pure functions using injected repositories and injected idempotency stores.
+- **Rollback notes**: Remove idempotent route handlers, metadata, tests, and API idempotency fixtures; then revert API error, validation, and documentation updates.
+- **Tests run**: `cmd /c npm test` passed with 238 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real Redis, DB unique constraints, distributed concurrency, production middleware, retry storm handling, fraud prevention, or real combat verification yet.
+
+## 2026-05-28
+- **Task name**: M18 Idempotency Contract
+- **Files created**:
+  - `backend/idempotency/README.md`
+  - `backend/idempotency/idempotency_errors.mjs`
+  - `backend/idempotency/idempotency_contract.mjs`
+  - `backend/idempotency/in_memory_idempotency_store.mjs`
+  - `backend/idempotency/tests/idempotency_contract.test.mjs`
+  - `data/samples/idempotency.valid.sample.json`
+  - `data/samples/idempotency.invalid.sample.json`
+- **Files updated**:
+  - `backend/README.md`
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added pure idempotency fingerprinting, replay/conflict checks, completed response saving, and an in-memory idempotency store test double.
+- **Why it changed**: To prevent duplicate match result persistence and duplicate reward claim persistence in future API retry flows without introducing Redis or database constraints yet.
+- **Risk**: Low. The new module is pure and testable with injected storage only.
+- **Rollback notes**: Remove `backend/idempotency`, remove idempotency sample files, and revert documentation, validation, and `package.json` updates.
+- **Tests run**: `cmd /c npm test` passed with 222 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real Redis, DB unique constraints, distributed concurrency, production HTTP middleware, retry storm handling, fraud prevention, or real combat verification yet.
+
+## 2026-05-28
+- **Task name**: M17 Backend API Persistence Integration
+- **Files created**:
+  - `backend/api/tests/persistent_route_handlers.test.mjs`
+  - `data/samples/backend_api_persistence.valid.sample.json`
+  - `data/samples/backend_api_persistence.invalid.sample.json`
+- **Files updated**:
+  - `backend/api/api_errors.mjs`
+  - `backend/api/route_handlers.mjs`
+  - `backend/api/route_contracts.mjs`
+  - `backend/api/tests/route_handlers.test.mjs`
+  - `backend/api/README.md`
+  - `backend/persistence/README.md`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added protected API handler variants that validate request body, auth/session, match participation, and backend contracts before persisting accepted match results or reward claim previews through injected repositories.
+- **Why it changed**: To connect the protected API boundary to the persistence service while keeping persistence replaceable and test-only for now.
+- **Risk**: Low. Handlers are pure functions using injected repositories. No real database, auth runtime, HTTP server, WebSocket runtime, matchmaking runtime, combat, or payments were added.
+- **Rollback notes**: Remove the two persistence route handlers, route metadata, persistent API tests, and persistence API fixtures; then revert documentation, validation, and API error updates.
+- **Tests run**: `cmd /c npm test` passed with 207 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real database adapter, transactions, concurrency handling, idempotency, JWT/session store, production HTTP server, fraud prevention, or real combat verification yet.
+
+## 2026-05-28
+- **Task name**: M16 Backend Persistence Design
+- **Files created**:
+  - `backend/persistence/persistence_errors.mjs`
+  - `backend/persistence/repository_contracts.mjs`
+  - `backend/persistence/in_memory_repositories.mjs`
+  - `backend/persistence/persistence_service.mjs`
+  - `backend/persistence/tests/repository_contracts.test.mjs`
+  - `backend/persistence/tests/persistence_service.test.mjs`
+  - `data/samples/persistence.valid.sample.json`
+  - `data/samples/persistence.invalid.sample.json`
+- **Files updated**:
+  - `backend/persistence/README.md`
+  - `backend/README.md`
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+  - `DEV_CHANGELOG.md`
+- **What changed**: Added pure repository contract metadata, deterministic in-memory repository test doubles, and persistence service functions for saving validated match results and reward claim previews.
+- **Why it changed**: To define replaceable backend persistence ports before introducing any real database adapter.
+- **Risk**: Low. The change is pure JavaScript contract/test code with no production database, networking, auth runtime, combat, or payments.
+- **Rollback notes**: Remove `backend/persistence` contract/test files and persistence samples, then revert documentation, validation, and `package.json` updates.
+- **Tests run**: `cmd /c npm test` passed with 192 tests; `cmd /c npm run validate:data` passed.
+- **Known issues**: No real database adapter, migrations, transactions, concurrency controls, idempotency guarantees, fraud prevention, production auth, or real combat verification yet.
+
 ## 2026-05-27
 - **Task**: Initial project governance setup
 - **Files created**:
@@ -310,4 +591,32 @@
 - **Risk**: Low – validation and handler composition only, no real networking.
 - **Rollback notes**: Revert documentation and `package.json` changes, remove `backend/api` folder and the two sample data files.
 - **Tests run**: `npm test` (137 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M14 Auth / Session Contract
+- **Files created**:
+  - `backend/auth/README.md`
+  - `backend/auth/auth_errors.mjs`
+  - `backend/auth/auth_session_contract.mjs`
+  - `backend/auth/tests/auth_session_contract.test.mjs`
+  - `data/samples/auth_session.valid.sample.json`
+  - `data/samples/auth_session.invalid.sample.json`
+- **Files updated**:
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `backend/README.md`
+  - `backend/api/README.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `DEV_CHANGELOG.md`
+  - `TEST_REPORT.md`
+- **What changed**: Created pure, testable auth/session contract validation. `validateRequestSession` checks that a client-claimed session exists in the authoritative server context and that the player_id matches. `validateMatchParticipation` ensures that only valid match participants can submit results or claim rewards. All validation uses stable error codes and follows the existing contract pattern.
+- **Why**: To establish the identity and access validation layer before any real login, JWT, or database persistence is introduced. This separates auth concerns from route handler logic.
+- **Risk**: Low – pure contract validation only, no real auth runtime or networking.
+- **Rollback notes**: Revert documentation and `package.json` changes, remove `backend/auth` folder and the two sample data files.
+- **Tests run**: `npm test` (156 pass, 0 fail), `npm run validate:data` (passed).
 - **Known issues**: None.

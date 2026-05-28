@@ -1,0 +1,35 @@
+{
+  "missing_accepted_result": {},
+  "missing_match_id": {
+    "accepted_result": {
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {}
+    }
+  },
+  "match_not_found": {
+    "accepted_result": {
+      "match_id": "missing_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {}
+    }
+  },
+  "missing_claim_id": {
+    "match_id": "local_match_001",
+    "claim_preview": {
+      "match_id": "local_match_001",
+      "rewards": {},
+      "profiles": {}
+    }
+  },
+  "missing_claim_preview": {
+    "claim_id": "claim_001",
+    "match_id": "local_match_001"
+  },
+  "invalid_repositories": {
+    "repositories": {}
+  }
+}

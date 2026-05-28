@@ -1,19 +1,20 @@
-# backend/persistence/README.md
+# Backend Persistence Contracts
 
 ## Purpose
-Provides database access, persistence services, and backup utilities for player data, match records, and unlock progress.
+`backend/persistence` defines pure repository contracts for future database integration. These contracts describe how backend modules will store and load player profiles, sessions, matches, match results, reward claims, and unlock progression snapshots.
 
-## What belongs here
-- Repository classes for accounts, inventory, unlocks, matches, etc.
-- Migration scripts and schema definitions for the chosen storage engine.
-- Data serialization / deserialization helpers.
+## Current Scope
+- Repository contract metadata only.
+- Deterministic in-memory repositories for tests.
+- Persistence service functions that save already validated backend contract outputs.
+- API integration uses these persistence service functions through injected repositories after protected route validation succeeds.
 
-## What must NOT be placed here
-- Game‑play simulation logic.
-- UI or client‑side code.
+## Limitations
+- **No real database**: There is no MongoDB, Postgres, MySQL, Redis, file store, or migration layer.
+- **In-memory repositories are test doubles**: They are used for deterministic tests only and are not production storage.
+- **No production auth/session runtime**: Sessions are stored only as test data in the in-memory repository.
+- **No reward calculation**: Persistence saves reward claim previews produced by backend contracts; it does not decide rewards.
+- **No permanent PvP stat advantage**: Stored progression previews must preserve the unlock rules and must not grant stat advantages.
 
-## Future expected files
-- `db_connection.gd`
-- `account_repository.gd`
-- `match_repository.gd`
-- `migration_tool.ps1`
+## Future Adapter Rule
+Future database adapters must preserve the same repository method contracts and cloning/isolation expectations. API/auth/contracts must validate authority and participation before persistence is allowed to save results or reward claim previews.

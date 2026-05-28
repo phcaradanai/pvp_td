@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bpvptdgodotproto" load_steps=2 version="4.6.2"]
+
+[ext_resource type="Script" path="res://scripts/pvp_flow_controller.gd" id="1_ctrl"]
+
+[node name="PvPFlowPrototype" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ctrl")
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Header" type="HBoxContainer" parent="MainLayout"]
+size_flags_horizontal = 3
+
+[node name="PhaseTitle" type="Label" parent="MainLayout/Header"]
+size_flags_horizontal = 3
+text = "Phase Title"
+theme_override_font_sizes/font_size = 24
+
+[node name="ProgressLabel" type="Label" parent="MainLayout/Header"]
+text = "Screen 1 / 7"
+horizontal_alignment = 2
+
+[node name="ContentRow" type="HBoxContainer" parent="MainLayout"]
+size_flags_vertical = 3
+size_flags_horizontal = 3
+
+[node name="PlayerAPanel" type="Panel" parent="MainLayout/ContentRow"]
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/PlayerAPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerATitle" type="Label" parent="MainLayout/ContentRow/PlayerAPanel/VBox"]
+text = "Player A"
+theme_override_font_sizes/font_size = 16
+
+[node name="PlayerAContent" type="Label" parent="MainLayout/ContentRow/PlayerAPanel/VBox"]
+text = ""
+autowrap_mode = 3
+size_flags_vertical = 3
+
+[node name="CenterPanel" type="Panel" parent="MainLayout/ContentRow"]
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/CenterPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterTitle" type="Label" parent="MainLayout/ContentRow/CenterPanel/VBox"]
+text = "Center"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="CenterContent" type="Label" parent="MainLayout/ContentRow/CenterPanel/VBox"]
+text = ""
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="PoolScrollContainer" type="ScrollContainer" parent="MainLayout/ContentRow/CenterPanel/VBox"]
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 150)
+visible = false
+
+[node name="PoolItemsContainer" type="VBoxContainer" parent="MainLayout/ContentRow/CenterPanel/VBox/PoolScrollContainer"]
+size_flags_horizontal = 3
+
+[node name="PlayerBPanel" type="Panel" parent="MainLayout/ContentRow"]
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="MainLayout/ContentRow/PlayerBPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerBTitle" type="Label" parent="MainLayout/ContentRow/PlayerBPanel/VBox"]
+text = "Player B"
+theme_override_font_sizes/font_size = 16
+
+[node name="PlayerBContent" type="Label" parent="MainLayout/ContentRow/PlayerBPanel/VBox"]
+text = ""
+autowrap_mode = 3
+size_flags_vertical = 3
+
+[node name="Controls" type="HBoxContainer" parent="MainLayout"]
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="MainLayout/Controls"]
+text = "< Prev"
+
+[node name="ResetButton" type="Button" parent="MainLayout/Controls"]
+text = "Reset"
+
+[node name="LockDraftButton" type="Button" parent="MainLayout/Controls"]
+text = "Lock Draft"
+visible = false
+
+[node name="DraftStatusLabel" type="Label" parent="MainLayout/Controls"]
+size_flags_horizontal = 3
+visible = false
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="MainLayout/Controls"]
+text = "Next >"
+
+[node name="Footer" type="Panel" parent="MainLayout"]
+
+[node name="FooterLabel" type="Label" parent="MainLayout/Footer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PvP Tower Tactics — Prototype M25"
+horizontal_alignment = 1

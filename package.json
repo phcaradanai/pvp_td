@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "node --test tools/validation/tests/*.test.mjs client/prototype/tests/*.test.mjs backend/contracts/tests/*.test.mjs backend/api/tests/*.test.mjs",
+    "test": "node --test tools/validation/tests/*.test.mjs client/prototype/tests/*.test.mjs backend/contracts/tests/*.test.mjs backend/api/tests/*.test.mjs backend/auth/tests/*.test.mjs backend/persistence/tests/*.test.mjs backend/idempotency/tests/*.test.mjs backend/session/tests/*.test.mjs backend/match_store/tests/*.test.mjs",
     "validate:data": "node tools/validation/validate_data.mjs"
   }
 }

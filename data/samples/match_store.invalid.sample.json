@@ -1,0 +1,48 @@
+{
+  "missing_request_id": {
+    "match_id": "local_match_001"
+  },
+  "missing_match_id": {
+    "request_id": "req_001"
+  },
+  "missing_match_store": {
+    "request_id": "req_001",
+    "match_id": "local_match_001",
+    "matchStore": null
+  },
+  "unknown_match": {
+    "request_id": "req_001",
+    "match_id": "no_such_match"
+  },
+  "missing_session_context": {
+    "request_id": "req_001",
+    "match_id": "local_match_001"
+  },
+  "missing_player_id": {
+    "request_id": "req_001",
+    "session_context": {
+      "session_id": "sess_001",
+      "status": "active"
+    },
+    "match_id": "local_match_001"
+  },
+  "player_not_in_match": {
+    "request_id": "req_001",
+    "session_context": {
+      "session_id": "sess_999",
+      "player_id": "player_z",
+      "status": "active"
+    },
+    "match_id": "local_match_001"
+  },
+  "invalid_match_status": {
+    "request_id": "req_status_001",
+    "match_id": "local_match_001",
+    "status": "not_a_valid_status"
+  },
+  "invalid_match": {
+    "match_id": "local_match_001",
+    "allowed_player_ids": null,
+    "status": "completed"
+  }
+}

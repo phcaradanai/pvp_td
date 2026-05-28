@@ -47,3 +47,11 @@ Premium 1v1 PvP Tower Tactics where each match is a strategic draft of towers, c
 - Single‑player story‑driven campaign.
 - Pay‑to‑win power advantages.
 - Hard‑coded balance values.
+
+## Prototype Flow (M24 — First Playable Prototype)
+
+A minimal Godot 4.6.2 scene prototype (`godot_prototype/`) demonstrates the full 7-screen PvP flow with placeholder data:
+
+`arsenal_preview → shared_pool_preview → draft_preview → planning_preview → battle_preview → result_preview → reward_preview`
+
+This prototype contains no real combat, networking, or backend calls. It validates that the engine can render each phase of the match flow with correct screen transitions. A parallel JS prototype (`client/prototype/`) uses 6 screens; the Godot prototype makes `planning_preview` and `battle_preview` explicit phases.

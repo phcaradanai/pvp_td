@@ -1,0 +1,287 @@
+{
+  "missing_idempotency_key": {
+    "request": {
+      "body": {
+        "request_id": "req_missing_idem",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "missing_idempotency_store": {
+    "idempotencyStore": null
+  },
+  "conflict_match_result_request": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_match_001",
+        "idempotency_key": "idem_match_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": "player_b",
+          "is_draw": false,
+          "reason": "PLAYER_B_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 0 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "conflict_reward_claim_request": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_reward_001",
+        "idempotency_key": "idem_reward_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_result": {
+          "match_id": "local_match_001",
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          }
+        },
+        "players": {},
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "auth_failed_no_idempotency_save": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_auth_fail",
+        "idempotency_key": "idem_auth_fail",
+        "session": {
+          "session_id": "missing_sess",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "contract_failed_no_idempotency_save": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_contract_fail",
+        "idempotency_key": "idem_contract_fail",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {}
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "persistence_failed_no_idempotency_save": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_persist_fail",
+        "idempotency_key": "idem_persist_fail",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "missing_match_001",
+        "client_result_preview": {
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "missing_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "client_reward_not_allowed_no_idempotency_save": {
+    "request": {
+      "body": {
+        "request_id": "req_idem_client_reward",
+        "idempotency_key": "idem_client_reward",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a",
+          "status": "active"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          },
+          "rewards": {
+            "player_a": { "xp_delta": 999 }
+          }
+        },
+        "server_context": {
+          "known_sessions": {
+            "sess_001": {
+              "player_id": "player_a",
+              "status": "active"
+            }
+          },
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  }
+}

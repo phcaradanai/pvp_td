@@ -1,0 +1,150 @@
+{
+  "missing_request_id": {
+    "session": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_001": {
+          "player_id": "player_a",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "missing_session": {
+    "request_id": "req_auth_010",
+    "server_context": {
+      "known_sessions": {}
+    }
+  },
+  "missing_session_id": {
+    "request_id": "req_auth_011",
+    "session": {
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {}
+    }
+  },
+  "missing_player_id": {
+    "request_id": "req_auth_012",
+    "session": {
+      "session_id": "sess_001",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_001": {
+          "player_id": "player_a",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "missing_server_context": {
+    "request_id": "req_auth_013",
+    "session": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    }
+  },
+  "unknown_session": {
+    "request_id": "req_auth_014",
+    "session": {
+      "session_id": "sess_unknown",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_001": {
+          "player_id": "player_a",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "session_player_mismatch": {
+    "request_id": "req_auth_015",
+    "session": {
+      "session_id": "sess_001",
+      "player_id": "player_b",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_001": {
+          "player_id": "player_a",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "inactive_session": {
+    "request_id": "req_auth_016",
+    "session": {
+      "session_id": "sess_002",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_002": {
+          "player_id": "player_a",
+          "status": "expired"
+        }
+      }
+    }
+  },
+  "missing_match_context": {
+    "request_id": "req_auth_020",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    }
+  },
+  "missing_match_id": {
+    "request_id": "req_auth_021",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "match_context": {
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "completed"
+    }
+  },
+  "player_not_in_match": {
+    "request_id": "req_auth_022",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "spectator",
+      "status": "active"
+    },
+    "match_context": {
+      "match_id": "local_match_001",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "completed"
+    }
+  },
+  "invalid_match_status": {
+    "request_id": "req_auth_023",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "match_context": {
+      "match_id": "local_match_001",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "destroyed"
+    }
+  }
+}

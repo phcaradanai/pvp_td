@@ -1,0 +1,76 @@
+{
+  "valid_profile_seed": {
+    "player_id": "player_a",
+    "display_name": "Player A",
+    "level": 1,
+    "xp": 10,
+    "soft_currency": 50,
+    "unlocked_ids": []
+  },
+  "valid_session_seed": {
+    "session_id": "sess_001",
+    "player_id": "player_a",
+    "status": "active"
+  },
+  "valid_match_seed": {
+    "match_id": "local_match_001",
+    "allowed_player_ids": ["player_a", "player_b"],
+    "status": "completed",
+    "phase": "result_preview"
+  },
+  "valid_save_match_result": {
+    "accepted_result": {
+      "match_id": "local_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    }
+  },
+  "valid_save_reward_claim_preview": {
+    "claim_id": "claim_001",
+    "match_id": "local_match_001",
+    "claim_preview": {
+      "match_id": "local_match_001",
+      "rewards": {
+        "player_a": {
+          "player_id": "player_a",
+          "xp_delta": 10,
+          "soft_currency_delta": 5,
+          "reason": "DRAW_REWARD"
+        },
+        "player_b": {
+          "player_id": "player_b",
+          "xp_delta": 10,
+          "soft_currency_delta": 5,
+          "reason": "DRAW_REWARD"
+        }
+      },
+      "profiles": {
+        "player_a": {
+          "player_id": "player_a",
+          "profile": {
+            "level": 1,
+            "xp": 20,
+            "soft_currency": 55,
+            "unlocked_ids": []
+          },
+          "new_unlocks": []
+        },
+        "player_b": {
+          "player_id": "player_b",
+          "profile": {
+            "level": 1,
+            "xp": 20,
+            "soft_currency": 55,
+            "unlocked_ids": []
+          },
+          "new_unlocks": []
+        }
+      }
+    }
+  }
+}

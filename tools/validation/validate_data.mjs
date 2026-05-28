@@ -38,7 +38,25 @@ async function main() {
       "backend_contract.valid.sample.json",
       "backend_contract.invalid.sample.json",
       "backend_api.valid.sample.json",
-      "backend_api.invalid.sample.json"
+      "backend_api.invalid.sample.json",
+      "auth_session.valid.sample.json",
+      "auth_session.invalid.sample.json",
+      "persistence.valid.sample.json",
+      "persistence.invalid.sample.json",
+      "backend_api_persistence.valid.sample.json",
+      "backend_api_persistence.invalid.sample.json",
+      "idempotency.valid.sample.json",
+      "idempotency.invalid.sample.json",
+      "backend_api_idempotency.valid.sample.json",
+      "backend_api_idempotency.invalid.sample.json",
+      "session_store.valid.sample.json",
+      "session_store.invalid.sample.json",
+      "backend_api_session_store.valid.sample.json",
+      "backend_api_session_store.invalid.sample.json",
+      "match_store.valid.sample.json",
+      "match_store.invalid.sample.json",
+      "backend_api_match_store.valid.sample.json",
+      "backend_api_match_store.invalid.sample.json"
     ];
 
     for (const file of requiredFiles) {
@@ -92,6 +110,39 @@ async function main() {
       console.error("Arsenal rules missing fields:", missing.join(", "));
       process.exit(1);
     }
+    // Godot prototype structure check
+    try {
+      const godotDataFile = path.join(projectRoot, "godot_prototype", "data", "sample_pvp_flow.json");
+      if (!fs.existsSync(godotDataFile)) {
+        console.error("Missing godot prototype data file: godot_prototype/data/sample_pvp_flow.json");
+        process.exit(1);
+      }
+      const godotRaw = fs.readFileSync(godotDataFile, "utf8");
+      const godotData = JSON.parse(godotRaw);
+      const requiredScreens = [
+        "arsenal_preview",
+        "shared_pool_preview",
+        "draft_preview",
+        "planning_preview",
+        "battle_preview",
+        "result_preview",
+        "reward_preview"
+      ];
+      if (!Array.isArray(godotData.screens)) {
+        console.error("godot_prototype/data/sample_pvp_flow.json: 'screens' must be an array");
+        process.exit(1);
+      }
+      for (const screen of requiredScreens) {
+        if (!godotData.screens.includes(screen)) {
+          console.error(`godot_prototype/data/sample_pvp_flow.json: missing required screen '${screen}'`);
+          process.exit(1);
+        }
+      }
+    } catch (godotErr) {
+      console.error("Godot prototype data validation failed:", godotErr.message);
+      process.exit(1);
+    }
+
     console.log("Data validation passed.");
     process.exit(0);
   } catch (e) {

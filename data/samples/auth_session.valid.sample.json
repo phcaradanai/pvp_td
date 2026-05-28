@@ -1,0 +1,44 @@
+{
+  "valid_active_session": {
+    "request_id": "req_auth_001",
+    "session": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "server_context": {
+      "known_sessions": {
+        "sess_001": {
+          "player_id": "player_a",
+          "status": "active"
+        }
+      }
+    }
+  },
+  "valid_match_participation_completed": {
+    "request_id": "req_auth_002",
+    "session_context": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active"
+    },
+    "match_context": {
+      "match_id": "local_match_001",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "completed"
+    }
+  },
+  "valid_match_participation_active": {
+    "request_id": "req_auth_003",
+    "session_context": {
+      "session_id": "sess_002",
+      "player_id": "player_b",
+      "status": "active"
+    },
+    "match_context": {
+      "match_id": "local_match_002",
+      "allowed_player_ids": ["player_a", "player_b"],
+      "status": "active"
+    }
+  }
+}

@@ -46,11 +46,31 @@ The match state can be deterministically wired end-to-end for integration testin
 - **Client must not submit rewards**: Match result submissions must not contain any reward calculations, these are rejected by contract.
 - **Server validation**: Server validates the match result submission context (e.g. valid match phase) before any reward claim is computed.
 - **API Boundary**: The client submits the match result preview; the backend validates it and strictly owns the resulting reward claim preview calculation via server-side logic.
+- **Match Participation**: Only authenticated match participants (verified via `validateMatchParticipation`) may submit match results or request reward claim previews. Spectators and unauthorized sessions are rejected.
 
 ## Anti‑Cheat Principles
 - Validate all incoming messages against expected schemas.
 - Use signed timestamps and sequence numbers to prevent replay attacks.
 - Periodic integrity checks of client‑reported state against server‑side simulation.
+
+## Persistence Authority
+- Saved match results and reward claims must come from validated backend contract outputs only.
+- Persistence must not bypass auth/session or match participation checks.
+- Match result persistence can only happen after protected API validation succeeds.
+- Duplicate result/reward requests must be idempotent and must not duplicate rewards.
+- Duplicate protected match result/reward claim requests must return an idempotent replay response instead of repeating persistence.
+- Only active, non-revoked sessions can submit protected PvP requests.
+- Protected PvP requests should use active, non-revoked store-backed sessions as the future API authority boundary.
+
+## Match Store Authority
+
+- In production, match participation must be validated against the authoritative match store, not client-submitted `match_context` fixtures.
+- Protected PvP actions (match result submission, reward claims) must verify that the requesting player is in `allowed_player_ids` of the stored match record before proceeding.
+- A future database-backed match store adapter must implement the same store contract as `backend/match_store/in_memory_match_store.mjs`.
+
+## Godot Prototype (M24)
+
+The Godot 4.6.2 scene prototype (`godot_prototype/`) demonstrates the 7-screen PvP flow in a real game engine. No real combat, networking, or backend calls are made. Screen data is loaded from `godot_prototype/data/sample_pvp_flow.json` at startup. The prototype enforces the view-model boundary: the controller reads from State and ViewModel only, and never mutates gameplay state directly through UI events.
 
 ## Disconnect / Reconnect Principles
 - If a player disconnects during draft, a timeout expires and the opponent may claim a win or the match is aborted based on lobby rules.

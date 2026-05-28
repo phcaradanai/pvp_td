@@ -1,0 +1,298 @@
+{
+  "valid_session_store_seed": {
+    "sess_001": {
+      "session_id": "sess_001",
+      "player_id": "player_a",
+      "status": "active",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "revoked_reason": null
+    },
+    "sess_002": {
+      "session_id": "sess_002",
+      "player_id": "player_b",
+      "status": "active",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "updated_at": "2026-01-01T00:00:00.000Z",
+      "revoked_reason": null
+    }
+  },
+  "valid_repository_seed": {
+    "profiles": {
+      "player_a": {
+        "player_id": "player_a",
+        "display_name": "Player A",
+        "level": 1,
+        "xp": 10,
+        "soft_currency": 50,
+        "unlocked_ids": []
+      },
+      "player_b": {
+        "player_id": "player_b",
+        "display_name": "Player B",
+        "level": 1,
+        "xp": 10,
+        "soft_currency": 50,
+        "unlocked_ids": []
+      }
+    },
+    "sessions": {},
+    "matches": {
+      "local_match_001": {
+        "match_id": "local_match_001",
+        "allowed_player_ids": ["player_a", "player_b"],
+        "status": "completed",
+        "phase": "result_preview"
+      }
+    },
+    "reward_claims": {}
+  },
+  "valid_idempotency_seed": {},
+  "valid_store_protected_match_result_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_match_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "valid_store_protected_reward_claim_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_reward_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_result": {
+          "match_id": "local_match_001",
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "players": {
+          "player_a": {
+            "player_id": "player_a",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          },
+          "player_b": {
+            "player_id": "player_b",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "valid_store_persistent_match_result_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_persist_match_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "valid_store_persistent_reward_claim_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_persist_reward_001",
+        "claim_id": "claim_store_reward_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_result": {
+          "match_id": "local_match_001",
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "players": {
+          "player_a": {
+            "player_id": "player_a",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          },
+          "player_b": {
+            "player_id": "player_b",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "valid_store_idempotent_match_result_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_idem_match_001",
+        "idempotency_key": "idem_store_match_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_id": "local_match_001",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          },
+          "result_context": {
+            "allowed_player_ids": ["player_a", "player_b"],
+            "match_phase": "result_preview",
+            "match_status": "completed"
+          }
+        }
+      }
+    }
+  },
+  "valid_store_idempotent_reward_claim_request": {
+    "request": {
+      "body": {
+        "request_id": "req_store_idem_reward_001",
+        "idempotency_key": "idem_store_reward_001",
+        "claim_id": "claim_store_idem_reward_001",
+        "session": {
+          "session_id": "sess_001",
+          "player_id": "player_a"
+        },
+        "match_result": {
+          "match_id": "local_match_001",
+          "winner": null,
+          "is_draw": true,
+          "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 100 }
+          }
+        },
+        "players": {
+          "player_a": {
+            "player_id": "player_a",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          },
+          "player_b": {
+            "player_id": "player_b",
+            "profile": {
+              "level": 1,
+              "xp": 10,
+              "soft_currency": 50,
+              "unlocked_ids": []
+            }
+          }
+        },
+        "server_context": {
+          "match_context": {
+            "match_id": "local_match_001",
+            "allowed_player_ids": ["player_a", "player_b"],
+            "status": "completed"
+          }
+        }
+      }
+    }
+  }
+}
