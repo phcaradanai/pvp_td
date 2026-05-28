@@ -21,8 +21,10 @@ This directory contains example JSON files that conform to the schemas defined i
 - `shared_pool.valid.sample.json` / `shared_pool.invalid.sample.json` - Shared pool builder fixtures.
 - `draft.valid.sample.json` / `draft.invalid.sample.json` - Draft validation fixtures.
 - `local_match.valid.sample.json` / `local_match.invalid.sample.json` - Local match skeleton fixtures.
-- `local_phase.valid.sample.json` / `local_phase.invalid.sample.json` - Local phase controller fixtures.
-- `mock_result.valid.sample.json` / `mock_result.invalid.sample.json` - Mock battle result fixtures.
+- `local_phase.valid.sample.json` and `.invalid.sample.json`: Fixtures for phase flow controller testing.
+- `mock_result.valid.sample.json` and `.invalid.sample.json`: Fixtures for testing deterministic placeholder result generation.
+- `local_e2e.valid.sample.json` and `.invalid.sample.json`: Fixtures for testing the end-to-end integration harness.
+- `reward_mock.valid.sample.json` and `.invalid.sample.json`: Fixtures for testing deterministic reward calculation and unlock progress.
 
 ## Naming Conventions
 All IDs use **snake_case** as agreed in the design decisions.

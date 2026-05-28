@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PvP TD - Visual Prototype Shell</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+    <header class="top-bar">
+      <div class="header-left">
+        <h1 id="screen-title" class="neon-text">Loading...</h1>
+        <select id="scenario-selector" class="scenario-select" disabled>
+          <option value="">Loading scenarios...</option>
+        </select>
+      </div>
+      <div class="controls">
+        <button id="btn-reset" class="btn btn-secondary" disabled>Reset</button>
+        <button id="btn-next" class="btn btn-primary" disabled>Next Phase</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div id="warnings-container" class="warnings hidden"></div>
+
+      <div class="split-layout">
+        <!-- Player A Column -->
+        <section id="player-a-panel" class="player-panel player-a">
+          <h2 class="neon-blue">Player A</h2>
+          <div class="status-indicator" id="player-a-status">Status: Unknown</div>
+        </section>
+
+        <!-- Center Column for Shared State -->
+        <section id="center-panel" class="center-panel">
+          <div id="arsenal-view" class="view-card hidden">
+            <h3>Arsenal Preview</h3>
+            <div id="arsenal-content" class="side-by-side"></div>
+          </div>
+          
+          <div id="shared-pool-view" class="view-card hidden">
+            <h3>Shared Pool</h3>
+            <div id="shared-pool-content" class="categories-grid"></div>
+          </div>
+          
+          <div id="draft-view" class="view-card hidden">
+            <h3>Draft Phase</h3>
+            <div id="draft-content" class="side-by-side"></div>
+          </div>
+
+          <div id="phase-flow-view" class="view-card hidden">
+            <h3>Phase Tracker</h3>
+            <div id="phase-flow-content" class="phase-list"></div>
+          </div>
+
+          <div id="result-view" class="view-card hidden">
+            <h3 class="neon-gold">Battle Result Mock</h3>
+            <div id="result-content" class="result-details"></div>
+          </div>
+        </section>
+
+        <!-- Player B Column -->
+        <section id="player-b-panel" class="player-panel player-b">
+          <h2 class="neon-red">Player B</h2>
+          <div class="status-indicator" id="player-b-status">Status: Unknown</div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

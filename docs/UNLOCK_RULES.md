@@ -5,10 +5,14 @@
 - All unlocks are either **cosmetic** or **new option** unlocks (new towers, creeps, spells, relics, guardians).
 - Unlocks are earned through gameplay, rank progression, or optional purchase; they must not affect balance of existing items.
 
+## Backend Authority
+- All unlock progression is ultimately computed and validated by the backend. The client may preview progression using mock local states, but the production server retains full authority.
+
 ## Allowed Unlocks
 - **Cosmetics**: Skins, particle effects, UI themes, avatar accessories.
-- **New Options**: Additional tower types, spell variants, creep families, relics, guardians that become available for selection.
-- **Progression Tiers**: Higher tiers unlock more visual variants and entirely new playstyles; each tier respects the fairness rule.
+- **New Options**: Additional tower types, spell variants, creep families, relics, guardians that become available for selection in the draft pool.
+- **Mastery/Titles**: Badges or profile items that prove dedication.
+- **CRITICAL RULE**: Unlocks must NEVER grant permanent PvP stat advantages (e.g. no +10% damage to towers). They grant horizontal options or aesthetics only.
 
 ## Forbidden Unlocks
 - Direct stat boosts to existing towers/creeps/spells (e.g., +damage, reduced cooldown).

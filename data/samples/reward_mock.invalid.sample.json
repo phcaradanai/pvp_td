@@ -1,0 +1,60 @@
+{
+  "missing_match_result": {
+    "players": {
+      "player_a": { "player_id": "player_a", "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] } },
+      "player_b": { "player_id": "player_b", "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] } }
+    }
+  },
+  "missing_players": {
+    "match_result": {
+      "match_id": "local_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    }
+  },
+  "invalid_match_result": {
+    "match_result": {
+      "match_id": "local_match_001",
+      "winner": "nobody",
+      "is_draw": false,
+      "reason": "INVALID",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "players": {
+      "player_a": { "player_id": "player_a", "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] } },
+      "player_b": { "player_id": "player_b", "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] } }
+    }
+  },
+  "invalid_player_profile": {
+    "match_result": {
+      "match_id": "local_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "players": {
+      "player_a": { "player_id": "player_a" },
+      "player_b": { "player_id": "player_b" }
+    }
+  },
+  "unlock_grants_pvp_stat_advantage": {
+    "players": {
+      "player_a": { "player_id": "player_a", "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] } }
+    },
+    "rewards": {
+      "player_a": { "xp_delta": 50, "soft_currency_delta": 25 }
+    }
+  }
+}

@@ -9,6 +9,8 @@ Provides scripts and utilities that validate game‑balance data against the JSO
 - `local_match_skeleton.mjs`: Wires validators together to create a deterministic pre-match flow (ready_to_start). This is pure validation and setup, NOT gameplay or combat.
 - `local_phase_controller.mjs`: Advances the match state through placeholder phases (ready_to_start -> planning -> battle_preview -> result_preview). It does NOT simulate real combat.
 - `mock_battle_result_preview.mjs`: Generates deterministic placeholder results from the `result_preview` phase based on core HP. Does NOT simulate real combat.
+- `local_e2e_loop_harness.mjs`: Integration harness that wires existing modules to prove a full deterministic local loop (creation -> phases -> mock result) without any combat/gameplay logic.
+- `reward_unlock_mock.mjs`: Provides placeholder deterministic logic for calculating post-match rewards (win/loss/draw) and unlock progression, without requiring any backend/economy persistence yet.
 - CI integration snippets that run validation on commit.
 
 ## What must NOT be placed here

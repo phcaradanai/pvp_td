@@ -125,3 +125,131 @@
 - **Rollback notes**: Revert documentation changes and remove the newly created `.mjs` and `.json` files.
 - **Tests run**: `npm test` (56 pass, 0 fail), `npm run validate:data` (passed).
 - **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M9 Local End-to-End Loop Harness
+- **Files created**:
+  - `tools/validation/src/local_e2e_loop_harness.mjs`
+  - `tools/validation/tests/local_e2e_loop_harness.test.mjs`
+  - `data/samples/local_e2e.valid.sample.json`
+  - `data/samples/local_e2e.invalid.sample.json`
+- **Files updated**:
+  - `tools/validation/validate_data.mjs`
+  - `tools/validation/README.md`
+  - `data/samples/README.md`
+  - `docs/PVP_RULES.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+- **What changed**: Implemented LocalE2ELoopHarness to seamlessly wire the local_match_skeleton, local_phase_controller, and mock_battle_result_preview sequentially. Proves all logic executes successfully without gameplay logic attached.
+- **Why**: Integration step to prove M1-M8 components work identically in sequence as they do in isolation, establishing a deterministic baseline for later prototype integrations.
+- **Risk**: Low – simply wires existing validation logic.
+- **Rollback notes**: Revert documentation changes and remove the newly created `.mjs` and `.json` files.
+- **Tests run**: `npm test` (65 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M10A Client Prototype Foundation
+- **Files created**:
+  - `client/prototype/README.md`
+  - `client/prototype/data/sample_local_e2e_state.json`
+  - `client/prototype/src/prototype_state.js`
+  - `client/prototype/src/prototype_flow.js`
+  - `client/prototype/src/prototype_view_model.js`
+  - `client/prototype/tests/prototype_flow.test.mjs`
+- **Files updated**:
+  - `package.json`
+  - `client/README.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+- **What changed**: Implemented a lightweight JS client prototype foundation. Defines UI state, deterministic screen transitions (`arsenal_preview` -> `shared_pool_preview` -> `draft_preview` -> `phase_flow_preview` -> `result_preview`), and a view model builder to prepare data for UI layers. Updated `npm test` to run these tests.
+- **Why**: To establish a client-side architecture that cleanly consumes validated loop data and controls UI flow without duplicating gameplay logic or embedding heavy UI engines immediately.
+- **Risk**: Low – pure state transition logic, no rendering or heavy scenes added.
+- **Rollback notes**: Revert documentation and `package.json` changes, then remove the `client/prototype` directory.
+- **Tests run**: `npm test` (72 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M10C Prototype Scenario Runner
+- **Files created**:
+  - `client/prototype/data/sample_scenarios.json`
+  - `client/prototype/data/generate_scenarios.mjs`
+  - `client/prototype/tests/prototype_scenario_runner.test.mjs`
+- **Files updated**:
+  - `client/prototype/src/prototype_state.js`
+  - `client/prototype/src/prototype_view_model.js`
+  - `client/prototype/visual/index.html`
+  - `client/prototype/visual/styles.css`
+  - `client/prototype/visual/app.js`
+  - `client/prototype/visual/README.md`
+  - `client/prototype/README.md`
+  - `client/README.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+- **What changed**: Added a scenario runner to the visual prototype. Generated rich scenario data based on E2E test cases, updated view models to expose categorized shared pools and side-by-side player loadouts, and implemented a dropdown scenario selector in the UI.
+- **Why**: To prove the UI architecture can cleanly handle distinct state variations (e.g. wins, draws, asymmetric unlocks) deterministically using existing validation rules, without injecting game logic into the frontend.
+- **Risk**: Low – UI-only extensions.
+- **Rollback notes**: Revert documentation and src/visual files, remove the `sample_scenarios.json` and new test.
+- **Tests run**: `npm test` (81 pass, 0 fail), `npm run validate:data` (passed).
+## 2026-05-28
+- **Task**: M11 Reward / Unlock Mock
+- **Files created**:
+  - `tools/validation/src/reward_unlock_mock.mjs`
+  - `tools/validation/tests/reward_unlock_mock.test.mjs`
+  - `data/samples/reward_mock.valid.sample.json`
+  - `data/samples/reward_mock.invalid.sample.json`
+- **Files updated**:
+  - `data/schemas/reward_rules.schema.json`
+  - `data/samples/reward_rules.sample.json`
+  - `tools/validation/src/catalog_loader.mjs`
+  - `tools/validation/validate_data.mjs`
+  - `tools/validation/README.md`
+  - `data/samples/README.md`
+  - `docs/UNLOCK_RULES.md`
+  - `docs/PVP_RULES.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+- **What changed**: Implemented deterministic post-match reward token generation and unlock progress evaluation. Created tests and valid/invalid fixtures. Refactored reward schema to use `win`/`draw`/`participation` block structures. Clarified that no permanent PvP stat advantages are ever granted.
+- **Why**: To prove the backend logic framework can safely handle post-match progression completely isolated from combat, relying purely on the mock match result and rules catalog.
+- **Risk**: Low – validation and mock algorithms only, no backend networking.
+- **Rollback notes**: Revert documentation and src/test files, remove newly created JSON samples and test files.
+- **Tests run**: `npm test` (98 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M12 Backend Match / Reward Contract
+- **Files created**:
+  - `backend/contracts/README.md`
+  - `backend/contracts/match_result_contract.mjs`
+  - `backend/contracts/reward_claim_contract.mjs`
+  - `backend/contracts/backend_contract_errors.mjs`
+  - `backend/contracts/tests/match_result_contract.test.mjs`
+  - `backend/contracts/tests/reward_claim_contract.test.mjs`
+  - `data/samples/backend_contract.valid.sample.json`
+  - `data/samples/backend_contract.invalid.sample.json`
+- **Files updated**:
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `backend/README.md`
+  - `backend/match/README.md`
+  - `backend/reward/README.md`
+  - `backend/unlock/README.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `TEST_REPORT.md`
+- **What changed**: Defined backend authoritative contracts for receiving match results and computing reward claims. `match_result_contract` validates submissions and strictly rejects client-provided reward fields. `reward_claim_contract` cleanly delegates to `reward_unlock_mock` for deterministic reward calculation without persisting state.
+- **Why**: To establish the necessary strict contract boundaries between the client reporting outcomes and the backend authorizing rewards, before any real database or network runtime is introduced.
+- **Risk**: Low – pure DTO validation and functional composition. No runtime server dependencies added.
+- **Rollback notes**: Remove the `backend/contracts` folder and the sample data files. Revert documentation and `package.json`.
+- **Tests run**: `npm test` (115 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.

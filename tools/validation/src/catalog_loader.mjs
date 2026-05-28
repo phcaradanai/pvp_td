@@ -17,7 +17,8 @@ export async function loadSampleCatalog(projectRoot) {
     "guardians.sample.json",
     "arsenal_rules.sample.json",
     "unlock_tree.sample.json",
-    "draft_rules.sample.json"
+    "draft_rules.sample.json",
+    "reward_rules.sample.json"
   ];
 
   const load = async (file) => {
@@ -29,7 +30,7 @@ export async function loadSampleCatalog(projectRoot) {
     }
   };
 
-  const [towers, creeps, spells, relics, guardians, arsenalRules, unlockTree, draftRules] = await Promise.all(
+  const [towers, creeps, spells, relics, guardians, arsenalRules, unlock_tree, draftRules, reward_rules] = await Promise.all(
     requiredFiles.map(load)
   );
 
@@ -79,8 +80,9 @@ export async function loadSampleCatalog(projectRoot) {
     guardiansById,
     allItemsById,
     arsenalRules,
-    unlockTree,
+    unlock_tree,
     draftRules,
+    reward_rules,
   };
 }
 

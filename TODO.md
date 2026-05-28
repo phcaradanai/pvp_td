@@ -52,12 +52,42 @@
   - [x] Duplicate result generation rejected
   - [x] Unit tests added
 
-- [ ] **M9 – Local End-to-End Loop Harness**
-  - [ ] Implement local loop harness
-  - [ ] Wire skeleton + phase controller + mock result preview into one end-to-end local flow
-  - [ ] Still no real combat until approved
+- [x] **M9 – Local End-to-End Loop Harness**
+  - [x] E2E harness implemented
+  - [x] Validator/phase/mock result modules wired
+  - [x] Trace output added
+  - [x] Unit/integration tests added
 
-- [ ] **M8 – Fun Validation**
+- [x] **M10A – Client Prototype Foundation**
+  - [x] Lightweight UI prototype state created
+  - [x] Prototype flow controller created
+  - [x] View model builder created
+
+- [x] **M10B – Client Visual Prototype Shell**
+  - [x] HTML/CSS/JS view model bindings
+
+- [x] **M10C – Prototype Scenario Runner**
+  - [x] Scenario selection and expanded views
+
+- [x] **M11 – Reward / Unlock Mock**
+  - [x] Deterministic mock rewards
+  - [x] Unlock progression calculation
+  - [x] No permanent PvP stat advantage rule enforced
+
+- [x] **M12 – Backend Match / Reward Contract**
+  - [x] Match result submission validation
+  - [x] Reward claim backend contract
+  - [x] Client reward calculation rejected
+
+## Next Possible Steps
+The pure data contracts for the PvP loop are solid.
+
+- **M13 Backend API Skeleton**: Wire contracts into a placeholder web server.
+- **M13B Client Reward Screen Prototype**: Add reward/unlock UI screens.
+- **M13C Godot Scene Prototype**: Connect a real game engine to the UI shell.
+- **M14 Real Combat Prototype**: Begin building actual gameplay.
+
+- [ ] **Fun Validation**
   - Playtesting framework
   - Balance tweaking workflow
 

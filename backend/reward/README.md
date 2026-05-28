@@ -7,6 +7,7 @@ Calculates server‑side rewards after a match, normalizes them, and integrates 
 - Reward calculation algorithms (e.g., MVP, win/loss bonuses, performance tokens).
 - Normalization logic to keep rewards fair across skill tiers.
 - Integration hooks to grant items via `backend/inventory` and unlocks via `backend/unlock`.
+- Must adhere to `reward_claim_contract.mjs` ensuring client rewards are ignored and calculated server-side.
 
 ## What must NOT be placed here
 - UI rendering or client‑side presentation of rewards.

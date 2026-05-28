@@ -11,7 +11,7 @@ Create a premium 1v1 PvP Tower Tactics game focused on strategic depth, fairness
 - Visuals: stylized 2.5D/3D, premium aesthetic, modest unit counts.
 
 ## Current Milestone
-**M8 – Mock Battle Result Preview** (complete).
+**M10A – Client Prototype Foundation** (complete).
 
 ## Core Design Pillars
 - **Fairness‑First**: Shared pool draft, cost‑limited arsenals, no permanent advantages.
@@ -51,7 +51,11 @@ Create a premium 1v1 PvP Tower Tactics game focused on strategic depth, fairness
 - Write unit and integration tests alongside code changes.
 - Keep documentation up‑to‑date in the `docs/` folder.
 - Respect the PvP fairness and unlock constraints.
-- When in doubt, ask for clarification before implementing.
+- **Current milestone**: M12 Backend Match / Reward Contract
+- **Latest completed work**: backend-side match/reward contract validation
+- **Next recommended task**: Backend API Skeleton or Client Reward Screen Prototype
 
-## Next Recommended Tasks
-- **M9 – Local End-to-End Loop Harness**: Wire LocalMatchSkeleton + LocalPhaseController + MockBattleResultPreview into one complete deterministic local flow test. Note: State clearly no real combat/UI/networking/rewards has been implemented yet.
+## Strict Constraints
+- **NO REAL COMBAT YET**: We have not implemented any actual tower firing, creep movement, grid mapping, or real-time economy. Everything is pure pre-match logic validation and scenario mockups.
+- **NO NETWORKING YET**: Everything is single-player local validation of deterministic JSON states. No real HTTP or WebSocket server runtime.
+- **NO REWARDS BACKEND YET**: We have placeholder deterministic reward logic and backend contracts, but no database, payment, or reward persistence has been implemented yet.

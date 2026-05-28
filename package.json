@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "node --test",
+    "test": "node --test tools/validation/tests/*.test.mjs client/prototype/tests/*.test.mjs backend/contracts/tests/*.test.mjs",
     "validate:data": "node tools/validation/validate_data.mjs"
   }
 }

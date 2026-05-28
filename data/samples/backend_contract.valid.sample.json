@@ -1,0 +1,63 @@
+{
+  "valid_draw_match_result_submission": {
+    "request_id": "req_001",
+    "match_id": "local_match_001",
+    "submitted_by": "player_a",
+    "client_result_preview": {
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "server_context": {
+      "allowed_player_ids": ["player_a", "player_b"],
+      "match_phase": "result_preview",
+      "match_status": "completed"
+    }
+  },
+  "valid_player_a_win_match_result_submission": {
+    "request_id": "req_002",
+    "match_id": "local_match_002",
+    "submitted_by": "player_a",
+    "client_result_preview": {
+      "winner": "player_a",
+      "is_draw": false,
+      "reason": "PLAYER_A_HIGHER_CORE_HP",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 0 }
+      }
+    },
+    "server_context": {
+      "allowed_player_ids": ["player_a", "player_b"],
+      "match_phase": "result_preview",
+      "match_status": "completed"
+    }
+  },
+  "valid_draw_reward_claim_preview": {
+    "request_id": "req_reward_001",
+    "match_result": {
+      "match_id": "local_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      },
+      "player_b": {
+        "player_id": "player_b",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      }
+    }
+  }
+}

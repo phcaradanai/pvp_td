@@ -1,0 +1,101 @@
+{
+  "draw_rewards": {
+    "match_result": {
+      "match_id": "local_match_001",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      },
+      "player_b": {
+        "player_id": "player_b",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      }
+    }
+  },
+  "player_a_win_rewards": {
+    "match_result": {
+      "match_id": "local_match_002",
+      "winner": "player_a",
+      "is_draw": false,
+      "reason": "CORE_HP_DIFFERENCE",
+      "score": {
+        "player_a": { "core_hp": 100 },
+        "player_b": { "core_hp": 0 }
+      }
+    },
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      },
+      "player_b": {
+        "player_id": "player_b",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      }
+    }
+  },
+  "player_b_win_rewards": {
+    "match_result": {
+      "match_id": "local_match_003",
+      "winner": "player_b",
+      "is_draw": false,
+      "reason": "CORE_HP_DIFFERENCE",
+      "score": {
+        "player_a": { "core_hp": 0 },
+        "player_b": { "core_hp": 100 }
+      }
+    },
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      },
+      "player_b": {
+        "player_id": "player_b",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      }
+    }
+  },
+  "unlock_progress_no_new_unlock": {
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+      }
+    },
+    "rewards": {
+      "player_a": { "xp_delta": 50, "soft_currency_delta": 10 }
+    }
+  },
+  "unlock_progress_with_new_option_unlock": {
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 10, "xp": 1000, "soft_currency": 450, "unlocked_ids": ["unlock_base_tower"] }
+      }
+    },
+    "rewards": {
+      "player_a": { "xp_delta": 100, "soft_currency_delta": 50 }
+    }
+  },
+  "unlock_progress_with_cosmetic_unlock": {
+    "players": {
+      "player_a": {
+        "player_id": "player_a",
+        "profile": { "level": 5, "xp": 500, "soft_currency": 50, "unlocked_ids": [] }
+      }
+    },
+    "rewards": {
+      "player_a": { "xp_delta": 100, "soft_currency_delta": 50 }
+    }
+  }
+}

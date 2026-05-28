@@ -21,10 +21,11 @@ The deterministic setup before a match begins follows this strict validation pip
 4. **Ready to Start**: Only if all steps pass is a deterministic `ready_to_start` match state generated.
 
 ## Local Placeholder Phase Flow
-The match state then advances through these placeholder phases:
-- `ready_to_start` → `planning` → `battle_preview` → `result_preview`
+The match state can be deterministically wired end-to-end for integration testing through these phases:
+- `match_skeleton` → `ready_to_start` → `planning` → `battle_preview` → `result_preview` → `mock_result`
 - `result_preview` can generate a deterministic mock result based on core HP only.
-*(Note: Real combat resolution is not implemented yet)*
+- `mock_result` can generate deterministic post-match rewards and unlock progress.
+*(Note: Real combat resolution and economy persistence are not implemented yet. Rewards do not affect ranked PvP stats directly.)*
 
 ## Draft Rules
 - Turn order is deterministic (e.g., 1‑2‑2‑1) and visible to both players.
@@ -41,6 +42,8 @@ The match state then advances through these placeholder phases:
 - The client sends intent (e.g., draft pick) but the server validates cost and pool state.
 - Victory, reward distribution, and unlock progression are computed server‑side.
 - Any client‑side prediction must be reconciled with authoritative server results.
+- **Client must not submit rewards**: Match result submissions must not contain any reward calculations, these are rejected by contract.
+- **Server validation**: Server validates the match result submission context (e.g. valid match phase) before any reward claim is computed.
 
 ## Anti‑Cheat Principles
 - Validate all incoming messages against expected schemas.

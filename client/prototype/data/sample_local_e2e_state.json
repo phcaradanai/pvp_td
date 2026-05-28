@@ -1,0 +1,46 @@
+{
+  "match_id": "local_match_001",
+  "phase": "result_preview",
+  "winner": null,
+  "core_hp": {
+    "player_a": 100,
+    "player_b": 100
+  },
+  "players": {
+    "player_a": {
+      "player_id": "player_a",
+      "final_loadout": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "final_loadout": {
+        "towers": ["ice_tower", "earth_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "shared_pool": {
+    "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+    "creeps": ["basic_creep", "fast_creep"],
+    "spells": ["burn_spell"],
+    "relics": [],
+    "guardians": []
+  },
+  "action_log": [
+    {
+      "type": "MOCK_BATTLE_RESULT_GENERATED",
+      "winner": null,
+      "is_draw": true,
+      "reason": "EQUAL_CORE_HP_PLACEHOLDER_DRAW"
+    }
+  ]
+}

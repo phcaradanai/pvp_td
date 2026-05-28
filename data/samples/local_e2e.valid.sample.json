@@ -1,0 +1,170 @@
+{
+  "basic_e2e_draw": {
+    "match_id": "local_match_001",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower", "earth_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower", "earth_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "seed": "local_seed_001"
+  },
+  "asymmetric_unlock_e2e_draw": {
+    "match_id": "local_match_002",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": ["unlock_fire_tower"],
+      "arsenal": {
+        "towers": ["fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": ["unlock_ice_tower"],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "seed": "local_seed_001"
+  },
+  "player_a_wins_by_core_hp_override": {
+    "match_id": "local_match_003",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "seed": "local_seed_001",
+    "core_hp_override": {
+      "player_a": 100,
+      "player_b": 80
+    }
+  },
+  "player_b_wins_by_core_hp_override": {
+    "match_id": "local_match_004",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "seed": "local_seed_001",
+    "core_hp_override": {
+      "player_a": 50,
+      "player_b": 100
+    }
+  }
+}

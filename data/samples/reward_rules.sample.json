@@ -1,21 +1,15 @@
 {
-  "victory": {
+  "win": {
     "xp": 100,
-    "victory_shards": 10,
-    "essence": 5,
-    "mastery_xp": 20
+    "soft_currency": 50
   },
-  "defeat": {
+  "draw": {
     "xp": 50,
-    "victory_shards": 2,
-    "essence": 2,
-    "mastery_xp": 5
+    "soft_currency": 25
   },
-  "bonuses": {
-    "first_win": 10,
-    "win_streak": 5,
-    "no_early_surrender": 3
+  "participation": {
+    "xp": 20,
+    "soft_currency": 10
   },
-  "anti_abuse_rules": {},
   "enabled": true
 }
