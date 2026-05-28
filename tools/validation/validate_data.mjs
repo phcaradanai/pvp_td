@@ -36,13 +36,25 @@ async function main() {
       "reward_mock.valid.sample.json",
       "reward_mock.invalid.sample.json",
       "backend_contract.valid.sample.json",
-      "backend_contract.invalid.sample.json"
+      "backend_contract.invalid.sample.json",
+      "backend_api.valid.sample.json",
+      "backend_api.invalid.sample.json"
     ];
 
     for (const file of requiredFiles) {
       const p = path.join(samplesDir, file);
       if (!fs.existsSync(p)) {
         console.error(`Missing required sample file: ${file}`);
+        process.exit(1);
+      }
+    }
+
+    const prototypeDataDir = path.join(projectRoot, "client", "prototype", "data");
+    const prototypeFiles = ["sample_local_e2e_state.json", "sample_scenarios.json", "sample_reward_preview.json"];
+    for (const file of prototypeFiles) {
+      const p = path.join(prototypeDataDir, file);
+      if (!fs.existsSync(p)) {
+        console.error(`Missing prototype data file: ${file}`);
         process.exit(1);
       }
     }

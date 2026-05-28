@@ -22,9 +22,10 @@ The deterministic setup before a match begins follows this strict validation pip
 
 ## Local Placeholder Phase Flow
 The match state can be deterministically wired end-to-end for integration testing through these phases:
-- `match_skeleton` → `ready_to_start` → `planning` → `battle_preview` → `result_preview` → `mock_result`
+- `match_skeleton` → `ready_to_start` → `planning` → `battle_preview` → `result_preview` → `mock_result` → `reward_preview`
 - `result_preview` can generate a deterministic mock result based on core HP only.
 - `mock_result` can generate deterministic post-match rewards and unlock progress.
+- `reward_preview` is a non-authoritative client UI state to visualize post-match progression.
 *(Note: Real combat resolution and economy persistence are not implemented yet. Rewards do not affect ranked PvP stats directly.)*
 
 ## Draft Rules
@@ -44,6 +45,7 @@ The match state can be deterministically wired end-to-end for integration testin
 - Any client‑side prediction must be reconciled with authoritative server results.
 - **Client must not submit rewards**: Match result submissions must not contain any reward calculations, these are rejected by contract.
 - **Server validation**: Server validates the match result submission context (e.g. valid match phase) before any reward claim is computed.
+- **API Boundary**: The client submits the match result preview; the backend validates it and strictly owns the resulting reward claim preview calculation via server-side logic.
 
 ## Anti‑Cheat Principles
 - Validate all incoming messages against expected schemas.

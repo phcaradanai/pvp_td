@@ -1,0 +1,107 @@
+{
+  "draw_reward_preview": {
+    "reward_preview": {
+      "rewards": {
+        "player_a": { "xp_delta": 50, "soft_currency_delta": 25, "reason": "DRAW_REWARD" },
+        "player_b": { "xp_delta": 50, "soft_currency_delta": 25, "reason": "DRAW_REWARD" }
+      }
+    },
+    "profiles_before": {
+      "player_a": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+    },
+    "profiles_after": {
+      "player_a": { "level": 1, "xp": 50, "soft_currency": 25, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 50, "soft_currency": 25, "unlocked_ids": [] }
+    },
+    "new_unlocks": {
+      "player_a": [],
+      "player_b": []
+    },
+    "phase": "result_preview"
+  },
+  "player_a_win_reward_preview": {
+    "reward_preview": {
+      "rewards": {
+        "player_a": { "xp_delta": 100, "soft_currency_delta": 50, "reason": "WIN_REWARD" },
+        "player_b": { "xp_delta": 25, "soft_currency_delta": 10, "reason": "PARTICIPATION_REWARD" }
+      }
+    },
+    "profiles_before": {
+      "player_a": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+    },
+    "profiles_after": {
+      "player_a": { "level": 1, "xp": 100, "soft_currency": 50, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 25, "soft_currency": 10, "unlocked_ids": [] }
+    },
+    "new_unlocks": {
+      "player_a": [],
+      "player_b": []
+    },
+    "phase": "result_preview"
+  },
+  "player_b_win_reward_preview": {
+    "reward_preview": {
+      "rewards": {
+        "player_a": { "xp_delta": 25, "soft_currency_delta": 10, "reason": "PARTICIPATION_REWARD" },
+        "player_b": { "xp_delta": 100, "soft_currency_delta": 50, "reason": "WIN_REWARD" }
+      }
+    },
+    "profiles_before": {
+      "player_a": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+    },
+    "profiles_after": {
+      "player_a": { "level": 1, "xp": 25, "soft_currency": 10, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 100, "soft_currency": 50, "unlocked_ids": [] }
+    },
+    "new_unlocks": {
+      "player_a": [],
+      "player_b": []
+    },
+    "phase": "result_preview"
+  },
+  "cosmetic_unlock_preview": {
+    "reward_preview": {
+      "rewards": {
+        "player_a": { "xp_delta": 100, "soft_currency_delta": 50, "reason": "WIN_REWARD" },
+        "player_b": { "xp_delta": 25, "soft_currency_delta": 10, "reason": "PARTICIPATION_REWARD" }
+      }
+    },
+    "profiles_before": {
+      "player_a": { "level": 2, "xp": 50, "soft_currency": 200, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+    },
+    "profiles_after": {
+      "player_a": { "level": 2, "xp": 150, "soft_currency": 250, "unlocked_ids": ["cosmetic_aura_blue"] },
+      "player_b": { "level": 1, "xp": 25, "soft_currency": 10, "unlocked_ids": [] }
+    },
+    "new_unlocks": {
+      "player_a": ["cosmetic_aura_blue"],
+      "player_b": []
+    },
+    "phase": "result_preview"
+  },
+  "option_unlock_preview": {
+    "reward_preview": {
+      "rewards": {
+        "player_a": { "xp_delta": 100, "soft_currency_delta": 50, "reason": "WIN_REWARD" },
+        "player_b": { "xp_delta": 25, "soft_currency_delta": 10, "reason": "PARTICIPATION_REWARD" }
+      }
+    },
+    "profiles_before": {
+      "player_a": { "level": 5, "xp": 400, "soft_currency": 500, "unlocked_ids": [] },
+      "player_b": { "level": 1, "xp": 0, "soft_currency": 0, "unlocked_ids": [] }
+    },
+    "profiles_after": {
+      "player_a": { "level": 5, "xp": 500, "soft_currency": 550, "unlocked_ids": ["fire_tower"] },
+      "player_b": { "level": 1, "xp": 25, "soft_currency": 10, "unlocked_ids": [] }
+    },
+    "new_unlocks": {
+      "player_a": ["fire_tower"],
+      "player_b": []
+    },
+    "phase": "result_preview"
+  }
+}

@@ -15,8 +15,8 @@ This top‑level client folder contains all code that runs on the player's devic
 ### Prototype Client Structure
 - `prototype/`
   - `src/`: Client-side logic separating state management (`prototype_state.js`), user flow transitions (`prototype_flow.js`), and view model mapping (`prototype_view_model.js`) away from raw validator logic.
-  - `visual/`: A lightweight visual prototype shell written in HTML/CSS/JS with a built-in Scenario Runner to browse states deterministically without a heavy game engine.
-  - `data/`: Sample JSON payloads (including multiple pre-generated scenarios) matching what a real backend connection would emit for pre-match phases.
+  - `visual/`: A lightweight visual prototype shell written in HTML/CSS/JS with a built-in Scenario Runner to browse states deterministically without a heavy game engine. It includes a reward preview mockup.
+  - `data/`: Sample JSON payloads (including multiple pre-generated scenarios and reward previews) matching what a real backend connection would emit for pre-match phases.
   - `tests/`: Extensive flow logic tests.
 
 ## Future expected files

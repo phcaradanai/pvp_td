@@ -1,0 +1,90 @@
+{
+  "missing_match_result_body": {
+    "request": {}
+  },
+  "invalid_match_result_request": {
+    "request": {
+      "body": {
+        "request_id": "req_002",
+        "match_id": "local_match_002",
+        "submitted_by": "player_a",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 }
+          }
+        },
+        "server_context": {
+          "allowed_player_ids": ["player_a", "player_b"],
+          "match_phase": "result_preview",
+          "match_status": "completed"
+        }
+      }
+    }
+  },
+  "unauthorized_submitter_request": {
+    "request": {
+      "body": {
+        "request_id": "req_003",
+        "match_id": "local_match_003",
+        "submitted_by": "spectator",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          }
+        },
+        "server_context": {
+          "allowed_player_ids": ["player_a", "player_b"],
+          "match_phase": "result_preview",
+          "match_status": "completed"
+        }
+      }
+    }
+  },
+  "client_reward_not_allowed_request": {
+    "request": {
+      "body": {
+        "request_id": "req_004",
+        "match_id": "local_match_004",
+        "submitted_by": "player_a",
+        "client_result_preview": {
+          "winner": "player_a",
+          "is_draw": false,
+          "reason": "PLAYER_A_HIGHER_CORE_HP",
+          "score": {
+            "player_a": { "core_hp": 100 },
+            "player_b": { "core_hp": 0 }
+          },
+          "rewards": {
+            "player_a": { "xp_delta": 9999 }
+          }
+        },
+        "server_context": {
+          "allowed_player_ids": ["player_a", "player_b"],
+          "match_phase": "result_preview",
+          "match_status": "completed"
+        }
+      }
+    }
+  },
+  "missing_reward_claim_body": {
+    "request": {}
+  },
+  "invalid_reward_claim_request": {
+    "request": {
+      "body": {
+        "request_id": "req_reward_002",
+        "match_result": {
+          "winner": "Draw"
+        },
+        "players": {}
+      }
+    }
+  }
+}

@@ -4,7 +4,8 @@ const VALID_TRANSITIONS = {
   "arsenal_preview": "SHOW_SHARED_POOL_PREVIEW",
   "shared_pool_preview": "SHOW_DRAFT_PREVIEW",
   "draft_preview": "SHOW_PHASE_FLOW_PREVIEW",
-  "phase_flow_preview": "SHOW_RESULT_PREVIEW"
+  "phase_flow_preview": "SHOW_RESULT_PREVIEW",
+  "result_preview": "SHOW_REWARD_PREVIEW"
 };
 
 const ACTION_TO_SCREEN = {
@@ -12,7 +13,8 @@ const ACTION_TO_SCREEN = {
   "SHOW_SHARED_POOL_PREVIEW": "shared_pool_preview",
   "SHOW_DRAFT_PREVIEW": "draft_preview",
   "SHOW_PHASE_FLOW_PREVIEW": "phase_flow_preview",
-  "SHOW_RESULT_PREVIEW": "result_preview"
+  "SHOW_RESULT_PREVIEW": "result_preview",
+  "SHOW_REWARD_PREVIEW": "reward_preview"
 };
 
 /**

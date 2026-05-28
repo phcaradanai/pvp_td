@@ -4,7 +4,7 @@
 Contains all server‑side code that runs authoritatively. It handles player accounts, matchmaking, match simulation, reward calculation, unlock progression, and data persistence.
 
 ## What belongs here
-- Modules listed under `backend/` (account, inventory, unlock, matchmaking, room, draft, match, reward, websocket, persistence, tests, contracts).
+- Modules listed under `backend/` (account, api, inventory, unlock, matchmaking, room, draft, match, reward, websocket, persistence, tests, contracts).
 - Business logic that determines outcomes, validates actions, and stores state.
 
 ## What must NOT be placed here

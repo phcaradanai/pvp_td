@@ -43,6 +43,16 @@ export function buildPrototypeViewModel(state) {
       core_hp_a: state.mock_result.core_hp?.player_a ?? 0,
       core_hp_b: state.mock_result.core_hp?.player_b ?? 0
     } : null,
+    reward_panel: state.reward_preview ? {
+      rewards: state.reward_preview.rewards,
+      profiles_before: state.profiles_before,
+      profiles_after: state.profiles_after,
+      new_unlocks: state.new_unlocks,
+      notes: [
+        "Prototype preview only. Production rewards must be confirmed by backend.",
+        "Unlocks grant options/cosmetics only. No permanent PvP stat advantage."
+      ]
+    } : null,
     warnings: getWarnings(state)
   };
 }

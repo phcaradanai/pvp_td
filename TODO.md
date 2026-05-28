@@ -79,13 +79,23 @@
   - [x] Reward claim backend contract
   - [x] Client reward calculation rejected
 
-## Next Possible Steps
-The pure data contracts for the PvP loop are solid.
+- [x] **M13B – Client Reward Screen Prototype**
+  - [x] Add reward_preview to state and flow
+  - [x] Map rewards and unlocks to view model
+  - [x] Visualize reward cards and unlock chips
 
-- **M13 Backend API Skeleton**: Wire contracts into a placeholder web server.
-- **M13B Client Reward Screen Prototype**: Add reward/unlock UI screens.
-- **M13C Godot Scene Prototype**: Connect a real game engine to the UI shell.
-- **M14 Real Combat Prototype**: Begin building actual gameplay.
+- [x] **M13A – Backend API Skeleton**
+  - [x] Create API skeleton and error handling
+  - [x] Implement testable route handlers for match results and reward claims
+  - [x] Write backend API tests
+
+## Next Possible Steps
+The pure data contracts for the PvP loop are solid, the client visual prototype is complete, and the backend API skeleton is built.
+
+- **M14 Auth/Session Contract**: Define how player sessions are securely validated.
+- **M14B Backend Persistence Design**: Define schema and database mocks.
+- **M14C Godot Scene Prototype**: Connect a real game engine to the UI shell.
+- **M15 Real Combat Prototype**: Begin building actual gameplay.
 
 - [ ] **Fun Validation**
   - Playtesting framework

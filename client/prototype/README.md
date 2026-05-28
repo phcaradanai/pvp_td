@@ -3,9 +3,14 @@
 This directory contains the foundational lightweight client prototype that visualizes the validated PvP local loop.
 
 ## Purpose
-- Visualizes the deterministic match skeleton, phase flow, and mock results.
+- Visualizes the deterministic match skeleton, phase flow, mock results, and reward preview.
 - Serves as the structural baseline for either Godot scenes or a Web UI prototype.
 - Proves data from validation flows into UI seamlessly.
+
+## Reward Preview
+- The client reward preview is non-authoritative.
+- It displays post-match XP, currency, and unlock progression based on sample data or local mock models.
+- Production rewards must always be computed and confirmed by the backend via `reward_claim_contract.mjs`.
 
 ## What it is NOT
 - NOT a real combat engine.

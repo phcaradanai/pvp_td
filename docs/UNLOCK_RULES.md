@@ -6,7 +6,8 @@
 - Unlocks are earned through gameplay, rank progression, or optional purchase; they must not affect balance of existing items.
 
 ## Backend Authority
-- All unlock progression is ultimately computed and validated by the backend. The client may preview progression using mock local states, but the production server retains full authority.
+- All unlock progression is ultimately computed and validated by the backend. The client may preview progression using mock local states (e.g. the visual reward preview screen), but the production server retains full authority.
+- **Visual Reward Preview**: Any client-side visual display of post-match unlocks must clearly communicate that it is a preview and must never assume permanent PvP stat advantages. Even in API preview handlers, any unlock configuration that grants a stat advantage will be strictly rejected.
 
 ## Allowed Unlocks
 - **Cosmetics**: Skins, particle effects, UI themes, avatar accessories.

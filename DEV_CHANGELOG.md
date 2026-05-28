@@ -253,3 +253,61 @@
 - **Rollback notes**: Remove the `backend/contracts` folder and the sample data files. Revert documentation and `package.json`.
 - **Tests run**: `npm test` (115 pass, 0 fail), `npm run validate:data` (passed).
 - **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M13B Client Reward Screen Prototype
+- **Files created**:
+  - `client/prototype/data/sample_reward_preview.json`
+  - `client/prototype/tests/prototype_reward_screen.test.mjs`
+- **Files updated**:
+  - `client/prototype/src/prototype_state.js`
+  - `client/prototype/src/prototype_flow.js`
+  - `client/prototype/src/prototype_view_model.js`
+  - `client/prototype/visual/index.html`
+  - `client/prototype/visual/styles.css`
+  - `client/prototype/visual/app.js`
+  - `client/prototype/visual/README.md`
+  - `client/prototype/README.md`
+  - `client/README.md`
+  - `docs/UNLOCK_RULES.md`
+  - `docs/PVP_RULES.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `DEV_CHANGELOG.md`
+  - `TEST_REPORT.md`
+  - `tools/validation/validate_data.mjs`
+- **What changed**: Added a visual reward preview screen to the client prototype shell. Extended prototype state, flow, and view model to handle transition from `result_preview` to `reward_preview`. Populated view model with XP, soft currency delta, new unlocks, and critical backend authority warning messages. Added styles for premium sci-fi reward cards. Built comprehensive unit tests proving the flow works deterministically.
+- **Why**: To prove the retention loop (match result -> XP/currency -> unlock progress -> visual feedback) works in the client layer while explicitly validating that the client remains a non-authoritative presentation layer for server decisions.
+- **Risk**: Low – visual mockup and state management only, no networking, no database.
+- **Rollback notes**: Revert `app.js`, `index.html`, `styles.css`, state/flow/view_model files, and remove the new test/sample JSON.
+- **Tests run**: `npm test` (126 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.
+
+## 2026-05-28
+- **Task**: M13A Backend API Skeleton
+- **Files created**:
+  - `backend/api/README.md`
+  - `backend/api/api_errors.mjs`
+  - `backend/api/route_handlers.mjs`
+  - `backend/api/route_contracts.mjs`
+  - `backend/api/tests/route_handlers.test.mjs`
+  - `data/samples/backend_api.valid.sample.json`
+  - `data/samples/backend_api.invalid.sample.json`
+- **Files updated**:
+  - `package.json`
+  - `tools/validation/validate_data.mjs`
+  - `backend/README.md`
+  - `ARCHITECTURE_NOTES.md`
+  - `docs/PVP_RULES.md`
+  - `docs/UNLOCK_RULES.md`
+  - `TODO.md`
+  - `AGENT_CONTEXT.md`
+  - `DEV_CHANGELOG.md`
+  - `TEST_REPORT.md`
+- **What changed**: Implemented pure, testable route handlers acting as an API skeleton. The handlers wrap `match_result_contract` and `reward_claim_contract` without deeply duplicating logic. Structured error handling was added. Provided robust tests and API sample data.
+- **Why**: To establish the API boundary required for the future backend deployment. By mocking the handlers, we define how requests will map to domain logic before investing in an HTTP runtime or authentication middleware.
+- **Risk**: Low – validation and handler composition only, no real networking.
+- **Rollback notes**: Revert documentation and `package.json` changes, remove `backend/api` folder and the two sample data files.
+- **Tests run**: `npm test` (137 pass, 0 fail), `npm run validate:data` (passed).
+- **Known issues**: None.

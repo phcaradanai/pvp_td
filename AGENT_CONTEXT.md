@@ -51,11 +51,12 @@ Create a premium 1v1 PvP Tower Tactics game focused on strategic depth, fairness
 - Write unit and integration tests alongside code changes.
 - Keep documentation up‑to‑date in the `docs/` folder.
 - Respect the PvP fairness and unlock constraints.
-- **Current milestone**: M12 Backend Match / Reward Contract
-- **Latest completed work**: backend-side match/reward contract validation
-- **Next recommended task**: Backend API Skeleton or Client Reward Screen Prototype
+- **Current milestone**: M13A Backend API Skeleton
+- **Latest completed work**: API skeleton route handlers around backend contracts
+- **Next recommended task**: Auth/Session Contract or Godot Scene Prototype
 
 ## Strict Constraints
 - **NO REAL COMBAT YET**: We have not implemented any actual tower firing, creep movement, grid mapping, or real-time economy. Everything is pure pre-match logic validation and scenario mockups.
 - **NO NETWORKING YET**: Everything is single-player local validation of deterministic JSON states. No real HTTP or WebSocket server runtime.
-- **NO REWARDS BACKEND YET**: We have placeholder deterministic reward logic and backend contracts, but no database, payment, or reward persistence has been implemented yet.
+- **NO REWARDS BACKEND YET**: We have placeholder deterministic reward logic, backend contracts, and visual mockups, but no database, payment, or reward persistence has been implemented yet.
+- **NO API RUNTIME YET**: We have testable route handlers acting as an API skeleton, but no live web server or auth middleware exists.

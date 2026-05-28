@@ -4,34 +4,27 @@
 
 ### npm test
 
-- **Total tests**: 115
-- **Pass**: 115
+- **Total tests**: 138
+- **Pass**: 138
 - **Fail**: 0
 - **Suites**: 1
-- **Duration**: ~460 ms
+- **Duration**: ~925 ms
 
 | # | Test Name | Status |
 |---|-----------|--------|
-| 1-81 | Previous Arsenal/Draft/Match/Prototype tests | ✅ pass |
-| 82-97 | Previous RewardUnlockMock tests | ✅ pass |
-| 98 | MatchResultContract - valid draw match result submission passes | ✅ pass |
-| 99 | MatchResultContract - valid Player A win match result submission passes | ✅ pass |
-| 100 | MatchResultContract - unauthorized submitter fails | ✅ pass |
-| 101 | MatchResultContract - match not completed fails | ✅ pass |
-| 102 | MatchResultContract - invalid match phase fails | ✅ pass |
-| 103 | MatchResultContract - client reward fields are rejected | ✅ pass |
-| 104 | MatchResultContract - invalid result preview fails | ✅ pass |
-| 105 | MatchResultContract - input is not mutated | ✅ pass |
-| 106 | RewardClaimContract - valid draw reward claim preview passes | ✅ pass |
-| 107 | RewardClaimContract - reward claim uses reward calculation | ✅ pass |
-| 108 | RewardClaimContract - reward claim uses unlock progression | ✅ pass |
-| 109 | RewardClaimContract - missing request_id fails | ✅ pass |
-| 110 | RewardClaimContract - missing match_result fails | ✅ pass |
-| 111 | RewardClaimContract - missing players fails | ✅ pass |
-| 112 | RewardClaimContract - input is not mutated | ✅ pass |
-| 113 | SharedPoolBuilder - merges two valid arsenals and includes base pool | ✅ pass |
-| 114 | SharedPoolBuilder - removes duplicates when rule true | ✅ pass |
-| 115 | SharedPoolBuilder - does not mutate original input | ✅ pass |
+| 1-115 | Previous Arsenal/Draft/Match/Prototype/Contract tests | ✅ pass |
+| 116-126 | Prototype Reward Screen tests | ✅ pass |
+| 127 | Backend API - health check returns 200 | ✅ pass |
+| 128 | Backend API - valid match result validation returns 200 | ✅ pass |
+| 129 | Backend API - invalid match result validation returns 400 | ✅ pass |
+| 130 | Backend API - unauthorized submitter returns 400 | ✅ pass |
+| 131 | Backend API - client-submitted rewards return 400 | ✅ pass |
+| 132 | Backend API - missing request body for match result returns 400 | ✅ pass |
+| 133 | Backend API - valid reward claim preview returns 200 | ✅ pass |
+| 134 | Backend API - invalid reward claim preview returns 400 | ✅ pass |
+| 135 | Backend API - missing request body for reward claim returns 400 | ✅ pass |
+| 136 | Backend API - route metadata includes all expected routes | ✅ pass |
+| 137 | Backend API - handlers do not mutate input | ✅ pass |
 
 ### npm run validate:data
 
@@ -50,6 +43,7 @@
   - Reward mock fixture files (reward_mock.valid.sample.json, reward_mock.invalid.sample.json) exist
   - Backend contract fixture files (backend_contract.valid.sample.json, backend_contract.invalid.sample.json) exist
   - Prototype scenario runner data files exist
+  - Prototype reward preview sample file exists
 
 ## Untested Areas
 - Real browser automation (Selenium/Playwright)

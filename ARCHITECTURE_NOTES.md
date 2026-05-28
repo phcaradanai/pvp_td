@@ -35,10 +35,10 @@
 ### Prototype Architecture (M10A - M10C)
 To bridge the gap between validation code and a full game engine, a **Client Prototype Foundation** (`client/prototype`) was built.
 1. `prototype_state.js`: A JSON-serializable state tree representing the active UI session.
-2. `prototype_flow.js`: A deterministic state machine advancing through `arsenal_preview` -> `shared_pool_preview` -> `draft_preview` -> `phase_flow_preview` -> `result_preview`.
+2. `prototype_flow.js`: A deterministic state machine advancing through `arsenal_preview` -> `shared_pool_preview` -> `draft_preview` -> `phase_flow_preview` -> `result_preview` -> `reward_preview`.
 3. `prototype_view_model.js`: A mapping layer that consumes raw validation output (e.g. `shared_pool` dictionaries) and flattens them into safe layout sections (e.g. `categories` arrays). UI layers must ONLY bind to the view model.
 4. **Visual Shell** (`client/prototype/visual`): A plain HTML/CSS/JS shell rendering the UI states without a real game engine.
-5. **Scenario Runner**: The visual shell supports hot-swapping between full E2E match states (e.g. draws, core HP overrides) proving the UI cleanly renders all scenarios without executing any game code.
+5. **Scenario Runner**: The visual shell supports hot-swapping between full E2E match states (e.g. draws, core HP overrides) proving the UI cleanly renders all scenarios without executing any game code. The client reward preview consumes sample/contract data, while the backend remains authoritative. Future APIs can replace sample reward data.
 
 ## Proposed Client Module Structure
 ```
@@ -96,7 +96,7 @@ backend/
 3. **Mock Result**: `mock_battle_result_preview.mjs` generates placeholder results from the `result_preview` phase. Future real combat resolver must replace this module, not mix into it.
 4. **Integration Harness**: `local_e2e_loop_harness.mjs` wires these modules end-to-end to prove the loop natively connects without duplicating validation or phase logic. Future gameplay loop must replace this cleanly.
 5. **Reward/Unlock Mock**: `reward_unlock_mock.mjs` is separate from match result generation. Future backend should own authoritative rewards; the client must not decide final rewards in production.
-6. **Backend Match/Reward Contract**: `match_result_contract.mjs` and `reward_claim_contract.mjs` define the authoritative schema and validation logic for receiving match results and computing rewards on the backend. Client can preview, but backend owns authority. Reward persistence is future work.
+7. **Backend API Skeleton**: `backend/api` contains HTTP route handlers that wrap the authoritative contracts (`match_result_contract`, `reward_claim_contract`). These handlers isolate HTTP request/response parsing from the domain logic and explicitly do not persist data yet. Future server runtimes will invoke these handlers and add authentication, rate-limiting, and persistence.
 3. **Pre‑match**: Players select arsenals (cost‑limited) -> sent to server.
 4. **Pool Merge**: Server combines selections into a Shared Pool.
 5. **Draft Phase**: Server orchestrates turn‑based picks, broadcasting updates.

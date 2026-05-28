@@ -19,7 +19,8 @@ const ELEMENTS = {
     shared_pool: document.getElementById("shared-pool-view"),
     draft: document.getElementById("draft-view"),
     phase_flow: document.getElementById("phase-flow-view"),
-    result: document.getElementById("result-view")
+    result: document.getElementById("result-view"),
+    reward: document.getElementById("reward-view")
   },
   
   content: {
@@ -27,7 +28,8 @@ const ELEMENTS = {
     shared_pool: document.getElementById("shared-pool-content"),
     draft: document.getElementById("draft-content"),
     phase_flow: document.getElementById("phase-flow-content"),
-    result: document.getElementById("result-content")
+    result: document.getElementById("result-content"),
+    reward: document.getElementById("reward-content")
   }
 };
 
@@ -78,7 +80,8 @@ function handleNext() {
     "arsenal_preview": "SHOW_SHARED_POOL_PREVIEW",
     "shared_pool_preview": "SHOW_DRAFT_PREVIEW",
     "draft_preview": "SHOW_PHASE_FLOW_PREVIEW",
-    "phase_flow_preview": "SHOW_RESULT_PREVIEW"
+    "phase_flow_preview": "SHOW_RESULT_PREVIEW",
+    "result_preview": "SHOW_REWARD_PREVIEW"
   };
   
   const actionType = transitionMap[state.current_screen];
@@ -115,7 +118,7 @@ function render() {
   
   // Header
   ELEMENTS.title.textContent = vm.header.title;
-  if (state.current_screen === "result_preview") {
+  if (state.current_screen === "reward_preview") {
     ELEMENTS.btnNext.disabled = true;
   } else {
     ELEMENTS.btnNext.disabled = false;
@@ -205,6 +208,46 @@ function render() {
       <hr style="border-color: var(--border-light); margin: 0.5rem 0;">
       <p>Player A Core HP: <span class="neon-blue">${vm.result_panel.core_hp_a}</span></p>
       <p>Player B Core HP: <span class="neon-red">${vm.result_panel.core_hp_b}</span></p>
+    `;
+  }
+  
+  // Render Reward
+  if (state.current_screen === "reward_preview" && vm.reward_panel) {
+    ELEMENTS.views.reward.classList.remove("hidden");
+    ELEMENTS.btnNext.disabled = true; // Terminal screen
+    
+    const rA = vm.reward_panel.rewards.player_a;
+    const rB = vm.reward_panel.rewards.player_b;
+    const uA = vm.reward_panel.new_unlocks.player_a || [];
+    const uB = vm.reward_panel.new_unlocks.player_b || [];
+    
+    const renderCard = (r, unlocks) => {
+      if (!r) return "No reward data";
+      const chips = unlocks.map(u => `<span class="unlock-chip">${u}</span>`).join("");
+      return `
+        <div class="reward-row"><span>XP Gained:</span> <span class="reward-value">+${r.xp_delta || 0}</span></div>
+        <div class="reward-row"><span>Currency:</span> <span class="reward-value">+${r.soft_currency_delta || 0}</span></div>
+        <div class="reward-row"><span>Reason:</span> <span class="text-muted">${r.reason || "N/A"}</span></div>
+        ${unlocks.length > 0 ? `<div><p style="margin-top:0.5rem; font-size:0.9em; color:var(--text-muted);">New Unlocks:</p><div class="unlock-chips">${chips}</div></div>` : ''}
+      `;
+    };
+
+    const notesHtml = vm.reward_panel.notes.map(n => `<p>${n}</p>`).join("");
+
+    ELEMENTS.content.reward.innerHTML = `
+      <div class="side-by-side">
+        <div>
+          <h4>Player A Rewards</h4>
+          ${renderCard(rA, uA)}
+        </div>
+        <div>
+          <h4>Player B Rewards</h4>
+          ${renderCard(rB, uB)}
+        </div>
+      </div>
+      <div class="backend-note">
+        ${notesHtml}
+      </div>
     `;
   }
 }

@@ -23,6 +23,11 @@ export function createInitialPrototypeState(sampleInput = {}) {
     },
     phase: sampleInput.phase || "not_started",
     mock_result: extractMockResult(sampleInput),
+    reward_preview: sampleInput.reward_preview || null,
+    profiles_before: sampleInput.profiles_before || null,
+    profiles_after: sampleInput.profiles_after || null,
+    new_unlocks: sampleInput.new_unlocks || {},
+    reward_errors: sampleInput.reward_errors || [],
     ui_events: []
   };
 }
