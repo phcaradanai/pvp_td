@@ -1,0 +1,98 @@
+{
+  "basic_merge": {
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": ["fast_creep"],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "duplicate_merge": {
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["fire_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["fire_tower", "ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "base_pool_merge": {
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": [],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": [],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "asymmetric_unlock_merge": {
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": ["unlock_fire_tower"],
+      "arsenal": {
+        "towers": ["fire_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": ["unlock_ice_tower"],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  }
+}

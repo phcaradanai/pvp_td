@@ -1,0 +1,244 @@
+{
+  "pick_outside_shared_pool": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "storm_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "unknown_item": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "unknown_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "unknown_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "disabled_item": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "disabled_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "disabled_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "duplicate_pick": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "basic_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_few_towers": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": [],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_many_towers": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower", "storm_tower", "poison_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower", "storm_tower", "poison_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_few_creeps": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": [],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_many_creeps": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep", "tank_creep", "shield_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep", "tank_creep", "shield_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_few_spells": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": [],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_many_spells": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell", "freeze_spell", "burn_spell_2"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell", "freeze_spell", "burn_spell_2"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "too_many_relics": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": ["income_relic", "defense_relic"],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": ["income_relic", "defense_relic"],
+      "guardians": []
+    }
+  },
+  "too_many_guardians": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": ["shield_guardian", "burst_guardian"]
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": ["shield_guardian", "burst_guardian"]
+    }
+  },
+  "invalid_category": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    },
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": [],
+      "heroes": ["fake_hero"]
+    }
+  },
+  "missing_shared_pool": {
+    "player_id": "player_a",
+    "final_loadout": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  },
+  "missing_final_loadout": {
+    "player_id": "player_a",
+    "shared_pool": {
+      "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+      "creeps": ["basic_creep", "fast_creep"],
+      "spells": ["burn_spell"],
+      "relics": [],
+      "guardians": []
+    }
+  }
+}

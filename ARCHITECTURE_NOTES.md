@@ -76,12 +76,16 @@ backend/
 - No circular dependencies; modules communicate via defined message contracts.
 
 ## Match Flow (High Level)
-1. **Pre‑match**: Players select arsenals (cost‑limited) -> sent to server.
-2. **Pool Merge**: Server combines selections into a Shared Pool.
-3. **Draft Phase**: Server orchestrates turn‑based picks, broadcasting updates.
-4. **Match Simulation**: Server runs authoritative simulation, determines winner.
-5. **Post‑Match**: Server normalizes rewards, updates unlock progress, sends results.
-6. **Client**: Receives final state, updates UI, plays VFX/animations.
+1. **Pre‑match Validation**: Client uses `local_match_skeleton.mjs` to validate arsenals, build shared pool, and validate drafts. This creates a deterministic `ready_to_start` state. (Test harness before gameplay).
+2. **Phase Advancement**: `local_phase_controller.mjs` handles advancing the placeholder phases. (Future combat must be implemented separately).
+3. **Mock Result**: `mock_battle_result_preview.mjs` generates placeholder results from the `result_preview` phase. Future real combat resolver must replace this module, not mix into it.
+3. **Pre‑match**: Players select arsenals (cost‑limited) -> sent to server.
+4. **Pool Merge**: Server combines selections into a Shared Pool.
+5. **Draft Phase**: Server orchestrates turn‑based picks, broadcasting updates.
+6. **Match Initialization**: Future gameplay must start ONLY after match_state phase is `ready_to_start`.
+7. **Match Simulation**: Server runs authoritative simulation, determines winner.
+8. **Post‑Match**: Server normalizes rewards, updates unlock progress, sends results.
+9. **Client**: Receives final state, updates UI, plays VFX/animations.
 
 ## Draft Flow (Detailed)
 - **Initialize**: Server creates DraftState with pool, player budgets.

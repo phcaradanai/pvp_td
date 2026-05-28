@@ -25,7 +25,18 @@
       "properties": {
         "remove_duplicates": {"type": "boolean"},
         "include_base_pool": {"type": "boolean"},
-        "reveal_all_items": {"type": "boolean"}
+        "reveal_all_items": {"type": "boolean"},
+        "base_pool": {
+          "type": "object",
+          "properties": {
+            "towers": {"type": "array", "items": {"type": "string"}},
+            "creeps": {"type": "array", "items": {"type": "string"}},
+            "spells": {"type": "array", "items": {"type": "string"}},
+            "relics": {"type": "array", "items": {"type": "string"}},
+            "guardians": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        }
       }
     },
     "enabled": {"type": "boolean"}

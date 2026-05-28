@@ -11,7 +11,7 @@ Create a premium 1v1 PvP Tower Tactics game focused on strategic depth, fairness
 - Visuals: stylized 2.5D/3D, premium aesthetic, modest unit counts.
 
 ## Current Milestone
-**M1 – Project Foundation** (complete).
+**M8 – Mock Battle Result Preview** (complete).
 
 ## Core Design Pillars
 - **Fairness‑First**: Shared pool draft, cost‑limited arsenals, no permanent advantages.
@@ -54,4 +54,4 @@ Create a premium 1v1 PvP Tower Tactics game focused on strategic depth, fairness
 - When in doubt, ask for clarification before implementing.
 
 ## Next Recommended Tasks
-- **M1 – Project Foundation**: scaffold folder structure, create empty module placeholders, and add the `data/` directory.
+- **M9 – Local End-to-End Loop Harness**: Wire LocalMatchSkeleton + LocalPhaseController + MockBattleResultPreview into one complete deterministic local flow test. Note: State clearly no real combat/UI/networking/rewards has been implemented yet.

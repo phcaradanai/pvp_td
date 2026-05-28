@@ -1,0 +1,80 @@
+{
+  "basic_local_match_ready": {
+    "match_id": "local_match_001",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower", "fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower", "earth_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower", "earth_tower"],
+        "creeps": ["fast_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "asymmetric_unlock_local_match_ready": {
+    "match_id": "local_match_002",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": ["unlock_fire_tower"],
+      "arsenal": {
+        "towers": ["fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["fire_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": ["unlock_ice_tower"],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": ["basic_creep"],
+        "spells": ["burn_spell"],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  }
+}

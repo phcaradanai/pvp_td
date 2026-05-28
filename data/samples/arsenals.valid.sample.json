@@ -1,0 +1,16 @@
+{
+  "arsenal": {
+    "towers": ["basic_tower", "fire_tower", "ice_tower", "earth_tower"],
+    "creeps": ["basic_creep", "fast_creep"],
+    "spells": ["burn_spell"],
+    "relics": [],
+    "guardians": []
+  },
+  "unlocked_ids": [
+    "unlock_fire_tower",
+    "unlock_ice_tower",
+    "unlock_earth_tower",
+    "unlock_fast_creep",
+    "unlock_basic_tower"
+  ]
+}

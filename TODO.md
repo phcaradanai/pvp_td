@@ -21,23 +21,43 @@
   - Define JSON schemas for towers, creeps, spells, etc.
   - Unit tests for data validation
 
-- [ ] **M3 – Arsenal Cost Limit**
+- [x] **M3 – Arsenal Cost Limit**
   - Design cost‑limit algorithm
   - Integrate with draft system
 
-- [ ] **M4 – Shared Pool System**
-  - Implement pool merging logic
-  - Ensure fairness constraints
+- [x] **M4 – Shared Pool System**
+  - [x] Implement pool merging logic
+  - [x] Ensure fairness constraints
 
-- [ ] **M5 – Draft Phase**
-  - Implement turn‑based draft UI (placeholder)
-  - Draft validation rules
+- [x] **M5 – Draft Phase**
+  - [x] Implement turn‑based draft UI (placeholder)
+  - [x] Draft validation rules
 
-- [ ] **M6 – Local PvP Match**
-  - Basic match simulation without networking
-  - Victory determination on server side
+- [x] **M6 – Local PvP Match Skeleton**
+  - [x] Local match skeleton implemented
+  - [x] Validator chain wired
+  - [x] Ready-to-start state created
+  - [x] Unit tests added
 
-- [ ] **M7 – Fun Validation**
+- [x] **M7 – Local Phase Controller**
+  - [x] LocalPhaseController implemented
+  - [x] Placeholder phase transitions validated
+  - [x] Invalid transitions rejected
+  - [x] Unit tests added
+
+- [x] **M8 – Mock Battle Result Preview**
+  - [x] Mock result preview implemented
+  - [x] Draw result supported
+  - [x] Player A/B winner by core HP supported
+  - [x] Duplicate result generation rejected
+  - [x] Unit tests added
+
+- [ ] **M9 – Local End-to-End Loop Harness**
+  - [ ] Implement local loop harness
+  - [ ] Wire skeleton + phase controller + mock result preview into one end-to-end local flow
+  - [ ] Still no real combat until approved
+
+- [ ] **M8 – Fun Validation**
   - Playtesting framework
   - Balance tweaking workflow
 

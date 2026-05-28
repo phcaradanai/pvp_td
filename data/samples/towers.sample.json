@@ -142,5 +142,23 @@
     "unlock_id": "unlock_poison_tower",
     "visual_key": "poison_tower",
     "enabled": true
+  },
+  {
+    "id": "disabled_tower",
+    "display_name": "Disabled Tower",
+    "element": "void",
+    "role": "damage",
+    "tier": 1,
+    "rarity": "common",
+    "arsenal_cost": 5,
+    "build_cost": 100,
+    "upgrade_cost": 50,
+    "stats": {"damage":10,"attack_speed":1.0,"range":5,"target_type":"ground","projectile_speed":10},
+    "tags": ["disabled"],
+    "counters": [],
+    "countered_by": [],
+    "unlock_id": null,
+    "visual_key": "disabled_tower",
+    "enabled": false
   }
 ]

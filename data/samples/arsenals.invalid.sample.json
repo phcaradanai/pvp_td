@@ -1,0 +1,18 @@
+{
+  "arsenal": {
+    "towers": [
+      "basic_tower",
+      "fire_tower",
+      "poison_tower",
+      "storm_tower",
+      "basic_tower",
+      "disabled_tower",
+      "earth_tower"
+    ],
+    "creeps": ["fast_creep", "tank_creep"],
+    "spells": ["freeze_spell"],
+    "relics": [],
+    "guardians": []
+  },
+  "unlocked_ids": []
+}

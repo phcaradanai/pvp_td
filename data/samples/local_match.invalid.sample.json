@@ -1,0 +1,196 @@
+{
+  "missing_match_id": {
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "invalid_player_a_arsenal": {
+    "match_id": "local_match_invalid",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower", "basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "invalid_player_b_arsenal": {
+    "match_id": "local_match_invalid",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower", "ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "invalid_player_a_draft": {
+    "match_id": "local_match_invalid",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower", "basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  },
+  "invalid_player_b_draft": {
+    "match_id": "local_match_invalid",
+    "player_a": {
+      "player_id": "player_a",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["basic_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    },
+    "player_b": {
+      "player_id": "player_b",
+      "unlocked_ids": [],
+      "arsenal": {
+        "towers": ["ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      },
+      "final_loadout": {
+        "towers": ["ice_tower", "ice_tower"],
+        "creeps": [],
+        "spells": [],
+        "relics": [],
+        "guardians": []
+      }
+    }
+  }
+}

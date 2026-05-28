@@ -1,0 +1,53 @@
+{
+  "draw_equal_core_hp": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "seed": "local_seed_001"
+  },
+  "player_a_wins_by_core_hp": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 100, "player_b": 80 },
+      "winner": null,
+      "action_log": []
+    },
+    "seed": "local_seed_001"
+  },
+  "player_b_wins_by_core_hp": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 50, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "seed": "local_seed_001"
+  }
+}

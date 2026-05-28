@@ -1,0 +1,70 @@
+{
+  "missing_match_state": {
+    "seed": "local_seed_001"
+  },
+  "invalid_phase_ready_to_start": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": { "player_a": {}, "player_b": {} },
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "action_log": []
+    }
+  },
+  "invalid_phase_planning": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "planning",
+      "players": { "player_a": {}, "player_b": {} },
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "action_log": []
+    }
+  },
+  "invalid_phase_battle_preview": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "battle_preview",
+      "players": { "player_a": {}, "player_b": {} },
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "action_log": []
+    }
+  },
+  "missing_players": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "action_log": []
+    }
+  },
+  "missing_core_hp": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": { "player_a": {}, "player_b": {} },
+      "action_log": []
+    }
+  },
+  "invalid_core_hp": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": { "player_a": {}, "player_b": {} },
+      "core_hp": { "player_a": "100", "player_b": null },
+      "action_log": []
+    }
+  },
+  "already_generated": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": { "player_a": {}, "player_b": {} },
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "action_log": [
+        {
+          "type": "MOCK_BATTLE_RESULT_GENERATED"
+        }
+      ]
+    }
+  }
+}

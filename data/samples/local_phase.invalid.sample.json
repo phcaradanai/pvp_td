@@ -1,0 +1,88 @@
+{
+  "missing_match_state": {
+    "action": { "type": "START_PLANNING" }
+  },
+  "missing_action": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": {},
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    }
+  },
+  "invalid_action_type": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": {},
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "INVALID_TYPE_123" }
+  },
+  "invalid_phase": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "unknown_phase_999",
+      "players": {},
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "START_PLANNING" }
+  },
+  "invalid_transition_ready_to_battle": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": {},
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "START_BATTLE_PREVIEW" }
+  },
+  "invalid_transition_planning_to_result": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "planning",
+      "players": {},
+      "shared_pool": {},
+      "turn": 1,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "FINISH_BATTLE_PREVIEW" }
+  },
+  "invalid_transition_result_to_battle": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": {},
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "START_BATTLE_PREVIEW" }
+  }
+}

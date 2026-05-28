@@ -94,7 +94,7 @@
     "id": "cosmetic_fire_projectile_skin",
     "display_name": "Fire Projectile Skin",
     "type": "cosmetic",
-    "target_id": "fire_projectile",
+    "target_id": "fire_tower",
     "cost": 100,
     "currency": "gems",
     "prerequisites": [],

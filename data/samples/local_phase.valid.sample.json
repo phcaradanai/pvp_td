@@ -1,0 +1,86 @@
+{
+  "start_planning": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "START_PLANNING" }
+  },
+  "start_battle_preview": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "planning",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "START_BATTLE_PREVIEW" }
+  },
+  "finish_battle_preview": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "battle_preview",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "FINISH_BATTLE_PREVIEW" }
+  },
+  "reset_to_ready": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "result_preview",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 1,
+      "round": 1,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    },
+    "action": { "type": "RESET_TO_READY" }
+  },
+  "full_placeholder_cycle": {
+    "match_state": {
+      "match_id": "local_match_001",
+      "phase": "ready_to_start",
+      "players": {
+        "player_a": { "player_id": "player_a", "final_loadout": {} },
+        "player_b": { "player_id": "player_b", "final_loadout": {} }
+      },
+      "shared_pool": {},
+      "turn": 0,
+      "round": 0,
+      "core_hp": { "player_a": 100, "player_b": 100 },
+      "winner": null,
+      "action_log": []
+    }
+  }
+}
